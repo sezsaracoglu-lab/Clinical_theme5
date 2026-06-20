@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anxiety Disorders — Visual Study Platform</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f2f7; --bg-2:#ece4ef; --panel:#fdfbfd; --panel-2:#f3ecf3; --line:#e5dce6;
+  --gold:#c9a96e; --gold-deep:#a8884e; --gold-bg:#f4eee1;
+  --sage:#7d9b76; --sage-deep:#5f7d59; --sage-bg:#e8efe4; --sage-line:#cdddc4;
+  --blue:#6f8fae; --blue-deep:#4f7193; --blue-bg:#e6edf3; --blue-line:#c6d6e3;
+  --ink:#43404e; --ink-dim:#65616e; --ink-mute:#9a93a3;
+  --green:#4e9e6c; --red:#cf6b5e;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+  --shadow:0 6px 24px rgba(110,90,120,.12); --shadow-sm:0 2px 10px rgba(110,90,120,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink);display:flex;min-height:100vh;line-height:1.55}
+::-webkit-scrollbar{width:11px;height:11px}
+::-webkit-scrollbar-thumb{background:#d8c9da;border-radius:6px;border:3px solid var(--bg)}
+::-webkit-scrollbar-track{background:transparent}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar{width:248px;flex-shrink:0;background:linear-gradient(180deg,#fdfbfd,#f3ecf3);border-right:1px solid var(--line);display:flex;flex-direction:column;position:sticky;top:0;height:100vh;padding:26px 18px}
+.brand{display:flex;align-items:center;gap:11px;padding:0 6px 22px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.brand .logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--gold),var(--gold-deep));display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);flex-shrink:0}
+.brand h1{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);line-height:1.05}
+.brand span{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+.nav-link{display:flex;align-items:center;gap:13px;padding:12px 14px;border-radius:11px;color:var(--ink-dim);font-weight:600;font-size:15px;cursor:pointer;border:1px solid transparent;transition:.18s;margin-bottom:4px}
+.nav-link svg{width:20px;height:20px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:1.9}
+.nav-link:hover{background:#fff;color:var(--ink);border-color:var(--line)}
+.nav-link.active{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#fff;box-shadow:var(--shadow-sm);border-color:transparent}
+.nav-foot{margin-top:auto;padding:14px 8px 2px;border-top:1px solid var(--line);font-size:11.5px;color:var(--ink-mute);line-height:1.5}
+
+/* ---------- MAIN ---------- */
+.main{flex:1;min-width:0;display:flex;flex-direction:column}
+.view{display:none;padding:34px 44px 70px;animation:fade .3s ease}
+.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.page-head{margin-bottom:26px}
+.page-head .eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:6px}
+.page-head h2{font-family:var(--serif);font-size:38px;font-weight:700;color:var(--ink);line-height:1.05}
+.page-head p{color:var(--ink-dim);font-size:15px;margin-top:8px;max-width:760px}
+
+/* ---------- OVERVIEW ---------- */
+.ov-sec{margin-bottom:34px}
+.ov-sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.ov-sec-head .num{font-family:var(--serif);font-size:30px;font-weight:700;color:var(--gold)}
+.ov-sec-head h3{font-family:var(--serif);font-size:25px;font-weight:700;color:var(--ink)}
+.ov-sec-desc{color:var(--ink-dim);font-size:13.5px;margin:0 0 16px 42px;max-width:720px}
+.ov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:14px;margin-left:42px}
+.ov-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px 17px 16px;cursor:pointer;transition:.18s;position:relative;overflow:hidden}
+.ov-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--cardc,var(--gold))}
+.ov-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--cardc,var(--gold))}
+.ov-card .ix{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--cardc,var(--gold-deep));margin-bottom:5px}
+.ov-card h4{font-size:15px;font-weight:700;color:var(--ink);line-height:1.25;margin-bottom:6px}
+.ov-card p{font-size:12.5px;color:var(--ink-dim);line-height:1.45}
+
+/* ---------- LESSONS ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:24px}
+.chip{padding:8px 16px;border-radius:30px;background:var(--panel);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--ink-dim);cursor:pointer;transition:.16s}
+.chip:hover{border-color:var(--gold);color:var(--ink)}
+.chip.active{background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#fff;border-color:transparent}
+.les-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:15px}
+.les-card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:19px;cursor:pointer;transition:.18s;position:relative}
+.les-card::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:4px;border-radius:4px;background:var(--cardc,var(--gold))}
+.les-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--cardc,var(--gold))}
+.les-card .tag{display:inline-block;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;color:var(--cardc,var(--gold-deep));margin-bottom:7px;padding-left:10px}
+.les-card h4{font-size:16px;font-weight:700;color:var(--ink);line-height:1.25;margin-bottom:7px;padding-left:10px}
+.les-card p{font-size:13px;color:var(--ink-dim);padding-left:10px;line-height:1.45}
+
+/* lesson reader */
+.reader{position:fixed;inset:0;background:rgba(60,50,66,.34);backdrop-filter:blur(3px);display:none;align-items:stretch;justify-content:flex-end;z-index:60}
+.reader.open{display:flex}
+.reader-panel{width:min(1240px,96vw);background:var(--bg);height:100%;overflow-y:auto;box-shadow:-12px 0 40px rgba(80,60,90,.18);animation:slidein .32s cubic-bezier(.2,.8,.2,1)}
+@keyframes slidein{from{transform:translateX(40px);opacity:.4}to{transform:none;opacity:1}}
+.reader-top{position:sticky;top:0;z-index:3;background:rgba(246,242,247,.93);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:15px 28px}
+.reader-top .crumb{font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--gold-deep)}
+.reader-top .rt-btns{display:flex;gap:9px}
+.rt-btns button,.closex{font-family:var(--sans);font-size:13.5px;font-weight:600;padding:9px 15px;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--ink-dim);cursor:pointer;transition:.16s}
+.rt-btns button:hover,.closex:hover{background:#fff;color:var(--ink);border-color:var(--gold)}
+.rt-btns button:disabled{opacity:.4;cursor:not-allowed}
+.closex{padding:9px 13px}
+.reader-body{padding:30px 40px 60px;max-width:1160px;margin:0 auto}
+.reader-body h2{font-family:var(--serif);font-size:33px;font-weight:700;color:var(--ink);line-height:1.08;margin-bottom:6px}
+.reader-body .sub{color:var(--ink-dim);font-size:14.5px;margin-bottom:22px}
+.lesson-layout{display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:start}
+.lesson-svg{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow-sm);position:sticky;top:84px}
+.lesson-svg svg{width:100%;height:auto;display:block}
+@media (max-width:880px){.lesson-layout{grid-template-columns:1fr}.lesson-svg{position:static}}
+.lesson-cols{display:grid;grid-template-columns:1fr;gap:18px}
+.points{list-style:none}
+.points li{position:relative;padding:11px 14px 11px 40px;margin-bottom:9px;background:var(--panel);border:1px solid var(--line);border-radius:12px;font-size:14.5px;color:var(--ink);line-height:1.5}
+.points li .pnum{position:absolute;left:11px;top:11px;width:21px;height:21px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.points li b{color:var(--gold-deep)}
+.hook{margin-top:6px;background:linear-gradient(135deg,var(--sage-bg),#eef4ea);border:1px solid var(--sage-line);border-radius:14px;padding:16px 18px 16px 52px;position:relative;font-size:14.5px;color:var(--sage-deep);font-weight:500;line-height:1.5}
+.hook .hk-ic{position:absolute;left:16px;top:15px;width:24px;height:24px}
+.hook b{color:var(--sage-deep)}
+.hook .lab{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--sage);margin-bottom:3px}
+
+/* ---------- FLASHCARDS ---------- */
+.flash-bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.flash-bar .count{font-size:13.5px;color:var(--ink-dim);font-weight:600}
+.flash-bar .sp{flex:1}
+.flash-bar button{font-family:var(--sans);font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--ink-dim);cursor:pointer;transition:.16s}
+.flash-bar button:hover{background:#fff;color:var(--ink);border-color:var(--gold)}
+.flash-stage{display:flex;flex-direction:column;align-items:center;gap:18px;margin-top:10px}
+.flash{width:min(640px,92%);height:340px;perspective:1600px;cursor:pointer}
+.flash-inner{position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d}
+.flash.flipped .flash-inner{transform:rotateY(180deg)}
+.flash-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:20px;padding:34px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;box-shadow:var(--shadow)}
+.flash-front{background:linear-gradient(150deg,#fdfbfd,#f3ecf3);border:1px solid var(--line)}
+.flash-back{background:linear-gradient(150deg,var(--blue-bg),#eef3f8);border:1px solid var(--blue-line);transform:rotateY(180deg)}
+.flash-face .ftag{position:absolute;top:18px;left:22px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--gold-deep)}
+.flash-back .ftag{color:var(--blue-deep)}
+.flash-face .qmark{position:absolute;top:14px;right:22px;font-family:var(--serif);font-size:34px;font-weight:700;color:var(--gold);opacity:.5}
+.flash-back .qmark{color:var(--blue)}
+.flash-front p{font-family:var(--serif);font-size:25px;font-weight:600;color:var(--ink);line-height:1.3}
+.flash-back p{font-size:16px;color:var(--ink);line-height:1.55}
+.flash-face .hint{position:absolute;bottom:16px;font-size:11.5px;color:var(--ink-mute);letter-spacing:.04em}
+.flash-nav{display:flex;align-items:center;gap:16px}
+.flash-nav button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--ink-dim);font-size:19px;cursor:pointer;transition:.16s;display:flex;align-items:center;justify-content:center}
+.flash-nav button:hover{background:#fff;border-color:var(--gold);color:var(--ink)}
+.flash-nav .pos{font-size:14px;font-weight:700;color:var(--ink-dim);min-width:62px;text-align:center}
+
+/* ---------- MCQ ---------- */
+.mcq-head-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:20px}
+.mcq-score{margin-left:auto;font-size:14px;font-weight:700;color:var(--gold-deep);background:var(--panel);border:1px solid var(--line);padding:9px 17px;border-radius:30px}
+.mcq-reset{font-family:var(--sans);font-size:13.5px;font-weight:600;padding:9px 16px;border-radius:9px;border:1px solid var(--line);background:var(--panel);color:var(--ink-dim);cursor:pointer}
+.mcq-reset:hover{background:#fff;border-color:var(--gold);color:var(--ink)}
+.mcq-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 26px;margin-bottom:18px;box-shadow:var(--shadow-sm)}
+.mcq-card .qn{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--gold-deep);margin-bottom:8px}
+.mcq-card .qt{font-size:17.5px;font-weight:600;color:var(--ink);line-height:1.4;margin-bottom:16px;font-family:var(--serif)}
+.opt{display:flex;align-items:flex-start;gap:12px;padding:13px 16px;border:1px solid var(--line);border-radius:11px;margin-bottom:9px;cursor:pointer;transition:.15s;font-size:14.5px;color:var(--ink);background:var(--bg)}
+.opt:hover{border-color:var(--gold);background:#fff}
+.opt .lt{width:25px;height:25px;border-radius:7px;background:var(--panel-2);border:1px solid var(--line);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--ink-dim)}
+.opt.correct{background:#eaf6ee;border-color:var(--green)}
+.opt.correct .lt{background:var(--green);color:#fff;border-color:var(--green)}
+.opt.wrong{background:#fbeae7;border-color:var(--red)}
+.opt.wrong .lt{background:var(--red);color:#fff;border-color:var(--red)}
+.opt.disabled{pointer-events:none;opacity:.85}
+.explain{margin-top:6px;padding:14px 16px 14px 44px;border-radius:11px;font-size:13.5px;line-height:1.5;position:relative;display:none}
+.explain.show{display:block}
+.explain.ok{background:var(--sage-bg);border:1px solid var(--sage-line);color:var(--sage-deep)}
+.explain.no{background:#fbeae7;border:1px solid #eec3bb;color:#a8443a}
+.explain .eic{position:absolute;left:15px;top:13px;font-weight:700}
+@media(max-width:880px){
+  .sidebar{width:74px;padding:18px 10px}.brand h1,.brand span,.nav-link span,.nav-foot{display:none}
+  .nav-link{justify-content:center;padding:13px}.view{padding:24px 18px 60px}
+  .ov-grid,.ov-sec-desc{margin-left:0}.page-head h2{font-size:30px}
+}
+</style>
+</head>
+<body>
+<aside class="sidebar">
+  <div class="brand">
+    <div class="logo">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-7 7c0 3 1.5 4.5 1.5 7a2.5 2.5 0 0 0 2.5 2.5h6A2.5 2.5 0 0 0 17.5 23"/><path d="M12 2a7 7 0 0 1 7 7c0 3-1.5 4.5-1.5 7"/><path d="M9 22h6"/><circle cx="12" cy="9" r="2.5"/></svg>
+    </div>
+    <div><span>Theme 5</span><h1>Anxiety</h1></div>
+  </div>
+  <nav id="nav">
+    <div class="nav-link active" data-view="overview"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Overview</span></div>
+    <div class="nav-link" data-view="lessons"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg><span>Lessons</span></div>
+    <div class="nav-link" data-view="flashcards"><svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="15" height="13" rx="2.2"/><path d="M7 6V4.5A2 2 0 0 1 9 2.5h10.5a2 2 0 0 1 2 2V15a2 2 0 0 1-2 2H17"/></svg><span>Flashcards</span></div>
+    <div class="nav-link" data-view="mcq"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M9.2 9.3a2.8 2.8 0 0 1 5.4 1c0 1.9-2.8 2.5-2.8 2.5"/><line x1="12" y1="17" x2="12" y2="17.01"/></svg><span>MCQ</span></div>
+  </nav>
+  <div class="nav-foot">Visual study platform · built from your Theme 5 readings (Davey, 2021; Hooley et&nbsp;al., 2021; Wong et&nbsp;al., 2023).</div>
+</aside>
+
+<main class="main">
+  <section id="overview" class="view active">
+    <div class="page-head">
+      <div class="eyebrow">Interactive Study Platform</div>
+      <h2>Anxiety Disorders</h2>
+      <p>Everything for Theme 5, organised the way a professor would teach it: specific phobia, social anxiety disorder, panic disorder and agoraphobia. Pick any concept below to open its visual lesson, then drill with flashcards and exam-style questions.</p>
+    </div>
+    <div id="ov-body"></div>
+  </section>
+
+  <section id="lessons" class="view">
+    <div class="page-head"><div class="eyebrow">The Lecture</div><h2>Lessons</h2><p>One diagram per concept — the picture is the teaching tool. Filter by section, then click any card.</p></div>
+    <div class="chips" id="les-chips"></div>
+    <div class="les-grid" id="les-grid"></div>
+  </section>
+
+  <section id="flashcards" class="view">
+    <div class="page-head"><div class="eyebrow">Active Recall</div><h2>Flashcards</h2><p>Click a card to flip it. Filter by topic, shuffle, or reset.</p></div>
+    <div class="chips" id="flash-chips"></div>
+    <div class="flash-bar">
+      <span class="count" id="flash-count"></span><span class="sp"></span>
+      <button onclick="shuffleFlash()">↻ Shuffle</button>
+      <button onclick="resetFlash()">Reset</button>
+    </div>
+    <div class="flash-stage">
+      <div class="flash" id="flash" onclick="flipFlash()">
+        <div class="flash-inner">
+          <div class="flash-face flash-front"><span class="ftag" id="ff-tag"></span><span class="qmark">Q</span><p id="ff-q"></p><span class="hint">click to reveal</span></div>
+          <div class="flash-face flash-back"><span class="ftag" id="fb-tag"></span><span class="qmark">A</span><p id="ff-a"></p><span class="hint">click to flip back</span></div>
+        </div>
+      </div>
+      <div class="flash-nav">
+        <button onclick="prevFlash(event)">‹</button>
+        <span class="pos" id="flash-pos"></span>
+        <button onclick="nextFlash(event)">›</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="mcq" class="view">
+    <div class="page-head"><div class="eyebrow">Exam Practice</div><h2>Multiple Choice</h2><p>Answer each question for instant feedback and an explanation.</p></div>
+    <div class="mcq-head-row">
+      <button class="mcq-reset" onclick="resetMCQ()">↻ Reset all</button>
+      <span class="mcq-score" id="mcq-score">0 / 0 answered</span>
+    </div>
+    <div id="mcq-body"></div>
+  </section>
+</main>
+
+<div class="reader" id="reader">
+  <div class="reader-panel">
+    <div class="reader-top">
+      <span class="crumb" id="rd-crumb"></span>
+      <div class="rt-btns">
+        <button id="rd-prev" onclick="stepLesson(-1)">‹ Prev</button>
+        <button id="rd-next" onclick="stepLesson(1)">Next ›</button>
+        <button class="closex" onclick="closeLesson()">✕ Close</button>
+      </div>
+    </div>
+    <div class="reader-body" id="rd-body"></div>
+  </div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const $all=s=>Array.from(document.querySelectorAll(s));
+
+/* ===== SECTION GROUPS (display order set by the user) ===== */
+const GROUPS=[
+  {name:'Definition & Overview',cat:'Overview',desc:'What anxiety is, fear vs anxiety, the fight-or-flight response, and the family of anxiety disorders covered in this theme.'},
+  {name:'DSM-5 Diagnostic Criteria',cat:'Diagnosis',desc:'The formal criteria for specific phobia, social anxiety disorder, panic attacks, panic disorder and agoraphobia.'},
+  {name:'Core Characteristics in Detail',cat:'Characteristics',desc:'Phobia subtypes, the blood-injection-injury response, social fears, panic symptoms, agoraphobic situations and comorbidity.'},
+  {name:'Prevalence',cat:'Prevalence',desc:'How common each disorder is, sex differences, ages of onset, and the most common anxiety disorders.'},
+  {name:'Aetiology / Theories',cat:'Aetiology',desc:'Classical conditioning, the two-factor model, biological preparedness, disgust sensitivity, and genetic/temperamental risk.'},
+  {name:'Cognitive Theories & Key Brain Areas',cat:'Cognitive & Brain',desc:'Clark\u2019s panic circle, the Clark & Wells social-anxiety model, anxiety sensitivity, attentional bias, safety behaviours, and the fear circuit.'},
+  {name:'Effects of the Disorder',cat:'Effects',desc:'How avoidance, safety behaviours and impairment shrink the sufferer\u2019s world and quality of life.'},
+  {name:'Developmental Course',cat:'Course',desc:'Typical ages of onset and how each anxiety disorder unfolds over the lifespan.'},
+  {name:'Treatment & Interventions',cat:'Treatment',desc:'Exposure therapy, systematic desensitisation, applied tension, CBT for panic and social anxiety, and medication.'},
+  {name:'Epidemiology',cat:'Epidemiology',desc:'Comorbidity patterns, cross-cultural variation, economic burden and the broader public-health picture.'}
+];
+const CAT_COLOR={
+  'Overview':'gold','Diagnosis':'blue','Characteristics':'sage','Prevalence':'gold',
+  'Aetiology':'sage','Cognitive & Brain':'blue','Effects':'sage','Course':'blue',
+  'Treatment':'gold','Epidemiology':'blue'
+};
+const COLORVAR={gold:'var(--gold)',sage:'var(--sage)',blue:'var(--blue)'};
+const COLORDEEP={gold:'var(--gold-deep)',sage:'var(--sage-deep)',blue:'var(--blue-deep)'};
+
+const LESSONS=[];
+const FLASHCARDS=[];
+const MCQS=[];
+
+/* ===== NAV / VIEW SWITCH ===== */
+function goView(v){
+  $all('.nav-link').forEach(n=>n.classList.toggle('active',n.dataset.view===v));
+  $all('.view').forEach(s=>s.classList.toggle('active',s.id===v));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+$all('.nav-link').forEach(n=>n.addEventListener('click',()=>goView(n.dataset.view)));
+
+/* ===== ORDERING HELPERS ===== */
+let ORDERED=[];
+function buildOrder(){ ORDERED=GROUPS.flatMap(g=>LESSONS.filter(l=>l.cat===g.cat)); }
+function dispNum(l){ return String(ORDERED.indexOf(l)+1).padStart(2,'0'); }
+function cc(l){ return CAT_COLOR[l.cat]||'gold'; }
+
+/* ===== OVERVIEW ===== */
+function buildOverview(){
+  const host=$('#ov-body'); host.innerHTML='';
+  GROUPS.forEach((g,gi)=>{
+    const items=ORDERED.filter(l=>l.cat===g.cat);
+    if(!items.length) return;
+    const sec=document.createElement('div'); sec.className='ov-sec';
+    sec.innerHTML=`<div class="ov-sec-head"><span class="num">${String(gi+1).padStart(2,'0')}</span><h3>${g.name}</h3></div>
+      <p class="ov-sec-desc">${g.desc}</p><div class="ov-grid"></div>`;
+    const grid=sec.querySelector('.ov-grid');
+    items.forEach(l=>{
+      const c=document.createElement('div'); c.className='ov-card';
+      c.style.setProperty('--cardc',COLORVAR[cc(l)]);
+      c.innerHTML=`<div class="ix">Lesson ${dispNum(l)}</div><h4>${l.title}</h4><p>${l.blurb}</p>`;
+      c.onclick=()=>openLesson(l.id);
+      grid.appendChild(c);
+    });
+    host.appendChild(sec);
+  });
+}
+
+/* ===== LESSONS GRID ===== */
+let lesFilter='all';
+function buildLesChips(){
+  const host=$('#les-chips'); host.innerHTML='';
+  const mk=(label,val)=>{const c=document.createElement('div');c.className='chip'+(val===lesFilter?' active':'');c.textContent=label;c.onclick=()=>{lesFilter=val;buildLesChips();buildLesGrid();};return c;};
+  host.appendChild(mk('All lessons','all'));
+  GROUPS.forEach(g=>{ if(LESSONS.some(l=>l.cat===g.cat)) host.appendChild(mk(g.name,g.cat)); });
+}
+function buildLesGrid(){
+  const host=$('#les-grid'); host.innerHTML='';
+  const list=lesFilter==='all'?ORDERED:ORDERED.filter(l=>l.cat===lesFilter);
+  list.forEach(l=>{
+    const c=document.createElement('div'); c.className='les-card';
+    c.style.setProperty('--cardc',COLORVAR[cc(l)]);
+    c.innerHTML=`<span class="tag">${dispNum(l)} · ${l.cat}</span><h4>${l.title}</h4><p>${l.blurb}</p>`;
+    c.onclick=()=>openLesson(l.id);
+    host.appendChild(c);
+  });
+}
+
+/* ===== LESSON READER ===== */
+let curLesson=null;
+const ICN={
+  bulb:`<svg class="hk-ic" viewBox="0 0 24 24" fill="none" stroke="#5f7d59" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2Z"/></svg>`
+};
+function openLesson(id){
+  const l=LESSONS.find(x=>x.id===id); if(!l) return;
+  curLesson=l;
+  const deep=COLORDEEP[cc(l)];
+  $('#rd-crumb').textContent=`Lesson ${dispNum(l)} — ${l.cat}`;
+  $('#rd-crumb').style.color=deep;
+  const body=$('#rd-body');
+  body.innerHTML=`<h2>${l.title}</h2><div class="sub">${l.blurb}</div>
+    <div class="lesson-layout">
+      <div class="lesson-svg">${l.svg}</div>
+      <div class="lesson-cols">
+        <ul class="points">${l.points.map((p,i)=>`<li><span class="pnum">${i+1}</span>${p}</li>`).join('')}</ul>
+        <div class="hook">${ICN.bulb}<span class="lab">Memory hook</span>${l.hook}</div>
+      </div>
+    </div>`;
+  const i=ORDERED.indexOf(l);
+  $('#rd-prev').disabled=i<=0; $('#rd-next').disabled=i>=ORDERED.length-1;
+  $('#reader').classList.add('open'); document.body.style.overflow='hidden';
+  $('.reader-panel').scrollTop=0;
+}
+function closeLesson(){ $('#reader').classList.remove('open'); document.body.style.overflow=''; curLesson=null; }
+function stepLesson(d){ if(!curLesson) return; const i=ORDERED.indexOf(curLesson)+d; if(i<0||i>=ORDERED.length) return; openLesson(ORDERED[i].id); }
+$('#reader').addEventListener('click',e=>{ if(e.target.id==='reader') closeLesson(); });
+document.addEventListener('keydown',e=>{ if(!$('#reader').classList.contains('open'))return; if(e.key==='Escape')closeLesson(); if(e.key==='ArrowRight')stepLesson(1); if(e.key==='ArrowLeft')stepLesson(-1); });
+
+/* ===== FLASHCARDS ===== */
+let flashFilter='all',deck=[],fi=0;
+function buildFlashChips(){
+  const host=$('#flash-chips'); host.innerHTML='';
+  const topics=['all',...Array.from(new Set(FLASHCARDS.map(f=>f.topic)))];
+  topics.forEach(t=>{const c=document.createElement('div');c.className='chip'+(t===flashFilter?' active':'');c.textContent=t==='all'?'All topics':t;c.onclick=()=>{flashFilter=t;rebuildDeck();buildFlashChips();};host.appendChild(c);});
+}
+function rebuildDeck(){ deck=flashFilter==='all'?FLASHCARDS.slice():FLASHCARDS.filter(f=>f.topic===flashFilter); fi=0; renderFlash(); }
+function renderFlash(){
+  const f=deck[fi]; const card=$('#flash'); card.classList.remove('flipped');
+  if(!f){ $('#ff-q').textContent='No cards.'; $('#ff-a').textContent=''; $('#flash-pos').textContent='0 / 0'; $('#flash-count').textContent='0 cards'; return; }
+  $('#ff-tag').textContent=f.topic; $('#fb-tag').textContent=f.topic;
+  $('#ff-q').textContent=f.q; $('#ff-a').textContent=f.a;
+  $('#flash-pos').textContent=`${fi+1} / ${deck.length}`;
+  $('#flash-count').textContent=`${deck.length} card${deck.length!==1?'s':''}`;
+}
+function flipFlash(){ $('#flash').classList.toggle('flipped'); }
+function nextFlash(e){ e&&e.stopPropagation(); if(!deck.length)return; fi=(fi+1)%deck.length; renderFlash(); }
+function prevFlash(e){ e&&e.stopPropagation(); if(!deck.length)return; fi=(fi-1+deck.length)%deck.length; renderFlash(); }
+function shuffleFlash(){ for(let i=deck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[deck[i],deck[j]]=[deck[j],deck[i]];} fi=0; renderFlash(); }
+function resetFlash(){ flashFilter='all'; buildFlashChips(); rebuildDeck(); }
+
+/* ===== MCQ ===== */
+let mcqState=[];
+function buildMCQ(){
+  const host=$('#mcq-body'); host.innerHTML=''; mcqState=MCQS.map(()=>null);
+  MCQS.forEach((m,qi)=>{
+    const card=document.createElement('div'); card.className='mcq-card';
+    card.innerHTML=`<div class="qn">Question ${qi+1} of ${MCQS.length}</div><div class="qt">${m.q}</div>`;
+    m.opts.forEach((o,oi)=>{
+      const opt=document.createElement('div'); opt.className='opt';
+      opt.innerHTML=`<span class="lt">${String.fromCharCode(65+oi)}</span><span>${o}</span>`;
+      opt.onclick=()=>answerMCQ(qi,oi,card);
+      card.appendChild(opt);
+    });
+    const ex=document.createElement('div'); ex.className='explain'; ex.id='ex-'+qi; card.appendChild(ex);
+    host.appendChild(card);
+  });
+  updateScore();
+}
+function answerMCQ(qi,oi,card){
+  if(mcqState[qi]!==null) return;
+  mcqState[qi]=oi; const m=MCQS[qi];
+  const opts=Array.from(card.querySelectorAll('.opt'));
+  opts.forEach((op,i)=>{ op.classList.add('disabled'); if(i===m.a)op.classList.add('correct'); if(i===oi&&oi!==m.a)op.classList.add('wrong'); });
+  const ex=$('#ex-'+qi); const right=oi===m.a;
+  ex.className='explain show '+(right?'ok':'no');
+  ex.innerHTML=`<span class="eic">${right?'✓':'✕'}</span><b>${right?'Correct. ':'Not quite. '}</b>${m.e}`;
+  updateScore();
+}
+function updateScore(){
+  const ans=mcqState.filter(x=>x!==null).length;
+  const correct=mcqState.filter((x,i)=>x===MCQS[i].a).length;
+  $('#mcq-score').textContent=`${correct} correct · ${ans} / ${MCQS.length} answered`;
+}
+function resetMCQ(){ buildMCQ(); window.scrollTo({top:0,behavior:'smooth'}); }
+
+/* ===== INIT ===== */
+function init(){
+  buildOrder();
+  buildOverview();
+  buildLesChips(); buildLesGrid();
+  buildFlashChips(); rebuildDeck();
+  buildMCQ();
+}
+
+/* ============================================================
+   LESSON DATA
+   ============================================================ */
+/* ===== SECTION 1 — DEFINITION & OVERVIEW ===== */
+LESSONS.push({
+  id:'fear-vs-anxiety', cat:'Overview',
+  title:'Fear vs Anxiety',
+  blurb:'Two related but distinct alarm states — one points at a present danger, the other at an imagined future one.',
+  svg:`<svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="20" font-weight="700" fill="#43404e">Fear vs Anxiety</text>
+    <text x="300" y="52" text-anchor="middle" font-family="DM Sans" font-size="12" fill="#65616e">Same alarm system — pointed at different targets in time</text>
+    <!-- FEAR side -->
+    <rect x="28" y="74" width="258" height="320" rx="16" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.6"/>
+    <text x="157" y="104" text-anchor="middle" font-family="Cormorant Garamond" font-size="24" font-weight="700" fill="#a8443a">FEAR</text>
+    <text x="157" y="126" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8443a">"There IS a tiger — NOW"</text>
+    <line x1="48" y1="140" x2="266" y2="140" stroke="#e3b3ab" stroke-width="1"/>
+    <g font-family="DM Sans" font-size="12" fill="#43404e">
+      <text x="157" y="166" text-anchor="middle" font-weight="700" fill="#a8443a">Present &amp; real threat</text>
+      <text x="157" y="190" text-anchor="middle">Object is clear &amp; specific</text>
+      <text x="157" y="214" text-anchor="middle">Surge of fight-or-flight</text>
+      <text x="157" y="238" text-anchor="middle">Strong urge to ESCAPE</text>
+      <text x="157" y="262" text-anchor="middle">Intense, brief, sharp</text>
+    </g>
+    <rect x="60" y="288" width="194" height="86" rx="12" fill="#fff" stroke="#cf6b5e" stroke-width="1.2"/>
+    <text x="157" y="312" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#a8443a">Adaptive emotion</text>
+    <text x="157" y="332" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">mobilises the body to</text>
+    <text x="157" y="348" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">deal with imminent</text>
+    <text x="157" y="364" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">danger</text>
+    <!-- ANXIETY side -->
+    <rect x="314" y="74" width="258" height="320" rx="16" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.6"/>
+    <text x="443" y="104" text-anchor="middle" font-family="Cormorant Garamond" font-size="24" font-weight="700" fill="#4f7193">ANXIETY</text>
+    <text x="443" y="126" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#4f7193">"What if a tiger COMES?"</text>
+    <line x1="334" y1="140" x2="552" y2="140" stroke="#b6cadb" stroke-width="1"/>
+    <g font-family="DM Sans" font-size="12" fill="#43404e">
+      <text x="443" y="166" text-anchor="middle" font-weight="700" fill="#4f7193">Future &amp; anticipated</text>
+      <text x="443" y="190" text-anchor="middle">Object vague / uncertain</text>
+      <text x="443" y="214" text-anchor="middle">Muscle tension, worry</text>
+      <text x="443" y="238" text-anchor="middle">Vigilance &amp; AVOIDANCE</text>
+      <text x="443" y="262" text-anchor="middle">Diffuse, lingering</text>
+    </g>
+    <rect x="346" y="288" width="194" height="86" rx="12" fill="#fff" stroke="#6f8fae" stroke-width="1.2"/>
+    <text x="443" y="312" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#4f7193">Becomes a disorder</text>
+    <text x="443" y="332" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">when it is excessive,</text>
+    <text x="443" y="348" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">persistent &amp; impairs</text>
+    <text x="443" y="364" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">daily life</text>
+    <text x="300" y="420" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#65616e">Both share the same physiology — they differ in TIMING and CERTAINTY of the threat</text>
+  </svg>`,
+  points:[
+    '<b>Fear</b> is an alarm to a <b>present, identifiable</b> danger — it triggers an immediate fight-or-flight surge and the urge to escape.',
+    '<b>Anxiety</b> is oriented to the <b>future</b>: apprehensive anticipation of a threat that is uncertain, vague or merely possible.',
+    'Fear is sharp and brief; anxiety is diffuse and lingering, marked by <b>muscle tension, worry and hypervigilance</b>.',
+    'Both are <b>adaptive</b> in normal amounts — they prepare the body and keep us safe.',
+    'They become a <b>disorder</b> only when the response is out of proportion, persistent, and <b>impairs</b> functioning.'
+  ],
+  hook:'Fear = "<b>tiger in the room</b>" (now, real). Anxiety = "<b>what if a tiger comes?</b>" (later, maybe). Same alarm, different clock.'
+});
+LESSONS.push({
+  id:'fight-flight', cat:'Overview',
+  title:'The Fight-or-Flight Response',
+  blurb:'The body\u2019s emergency mobilisation system — adaptive in real danger, but the engine of panic when it misfires.',
+  svg:`<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="20" font-weight="700" fill="#43404e">Fight-or-Flight: the Body on Alert</text>
+    <!-- trigger -->
+    <rect x="220" y="48" width="160" height="40" rx="10" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.6"/>
+    <text x="300" y="73" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#a8884e">Perceived threat</text>
+    <path d="M300,88 L300,112" stroke="#9a93a3" stroke-width="1.6" marker-end="url(#arrF)"/>
+    <defs><marker id="arrF" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#9a93a3"/></marker></defs>
+    <!-- SNS -->
+    <rect x="180" y="112" width="240" height="40" rx="10" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.6"/>
+    <text x="300" y="131" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#4f7193">Sympathetic nervous system fires</text>
+    <text x="300" y="146" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">adrenaline + noradrenaline released</text>
+    <path d="M300,152 L300,172" stroke="#9a93a3" stroke-width="1.6" marker-end="url(#arrF)"/>
+    <!-- body effects grid -->
+    <g font-family="DM Sans" font-size="10.5" fill="#43404e">
+      <rect x="36" y="178" width="166" height="50" rx="9" fill="#fbeae7" stroke="#cf6b5e"/>
+      <text x="119" y="198" text-anchor="middle" font-weight="700" fill="#a8443a">Heart pounds</text>
+      <text x="119" y="216" text-anchor="middle">blood to big muscles</text>
+      <rect x="217" y="178" width="166" height="50" rx="9" fill="#fbeae7" stroke="#cf6b5e"/>
+      <text x="300" y="198" text-anchor="middle" font-weight="700" fill="#a8443a">Breathing speeds up</text>
+      <text x="300" y="216" text-anchor="middle">more oxygen intake</text>
+      <rect x="398" y="178" width="166" height="50" rx="9" fill="#fbeae7" stroke="#cf6b5e"/>
+      <text x="481" y="198" text-anchor="middle" font-weight="700" fill="#a8443a">Pupils dilate</text>
+      <text x="481" y="216" text-anchor="middle">sharper vision</text>
+      <rect x="36" y="236" width="166" height="50" rx="9" fill="#fbeae7" stroke="#cf6b5e"/>
+      <text x="119" y="256" text-anchor="middle" font-weight="700" fill="#a8443a">Sweating</text>
+      <text x="119" y="274" text-anchor="middle">cools the body</text>
+      <rect x="217" y="236" width="166" height="50" rx="9" fill="#fbeae7" stroke="#cf6b5e"/>
+      <text x="300" y="256" text-anchor="middle" font-weight="700" fill="#a8443a">Digestion halts</text>
+      <text x="300" y="274" text-anchor="middle">dry mouth, nausea</text>
+      <rect x="398" y="236" width="166" height="50" rx="9" fill="#fbeae7" stroke="#cf6b5e"/>
+      <text x="481" y="256" text-anchor="middle" font-weight="700" fill="#a8443a">Muscles tense</text>
+      <text x="481" y="274" text-anchor="middle">trembling, ready to act</text>
+    </g>
+    <!-- two outcomes -->
+    <rect x="70" y="306" width="200" height="60" rx="12" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+    <text x="170" y="330" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#5f7d59">REAL danger</text>
+    <text x="170" y="350" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">response is life-saving &amp; adaptive</text>
+    <rect x="330" y="306" width="200" height="60" rx="12" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.4"/>
+    <text x="430" y="330" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#a8443a">FALSE alarm</text>
+    <text x="430" y="350" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">sensations misread &#8594; panic attack</text>
+    <text x="300" y="398" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8884e">A panic attack = a full fight-or-flight response firing with no real danger present</text>
+    <text x="300" y="428" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">The symptoms are uncomfortable but physiologically harmless</text>
+  </svg>`,
+  points:[
+    'A perceived threat triggers the <b>sympathetic nervous system</b>, flooding the body with adrenaline to prepare it to <b>fight or flee</b>.',
+    'Effects include a <b>pounding heart, fast breathing, sweating, trembling, dilated pupils</b> and halted digestion — all energy-mobilising.',
+    'In genuine danger this response is <b>adaptive and life-saving</b>.',
+    'A <b>panic attack is this same response firing as a false alarm</b>, with no real danger present.',
+    'Crucially, the sensations are <b>intensely uncomfortable but physically harmless</b> — a key fact in treatment.'
+  ],
+  hook:'Panic is the smoke alarm going off when there\u2019s no fire — <b>loud and frightening, but the house isn\u2019t burning</b>.'
+});
+LESSONS.push({
+  id:'anxiety-family', cat:'Overview',
+  title:'The Anxiety Disorders Family',
+  blurb:'The four disorders at the heart of this theme — what each one fears, in a single map.',
+  svg:`<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="20" font-weight="700" fill="#43404e">Four Anxiety Disorders — what is feared?</text>
+    <circle cx="300" cy="60" r="4" fill="#c9a96e"/>
+    <text x="300" y="86" text-anchor="middle" font-family="Cormorant Garamond" font-size="17" font-weight="700" fill="#a8884e">All share: excessive fear/anxiety + avoidance</text>
+    <!-- four quadrant cards -->
+    <g font-family="DM Sans">
+      <rect x="34" y="104" width="262" height="140" rx="14" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.6"/>
+      <text x="165" y="130" text-anchor="middle" font-size="15" font-weight="700" fill="#5f7d59">Specific Phobia</text>
+      <text x="165" y="154" text-anchor="middle" font-size="11.5" fill="#43404e">Marked fear of a particular</text>
+      <text x="165" y="171" text-anchor="middle" font-size="11.5" fill="#43404e">object or situation</text>
+      <text x="165" y="195" text-anchor="middle" font-size="11" font-style="italic" fill="#65616e">spiders, heights, blood,</text>
+      <text x="165" y="211" text-anchor="middle" font-size="11" font-style="italic" fill="#65616e">flying, injections</text>
+      <text x="165" y="233" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5f7d59">Fear = the THING</text>
+
+      <rect x="304" y="104" width="262" height="140" rx="14" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.6"/>
+      <text x="435" y="130" text-anchor="middle" font-size="15" font-weight="700" fill="#4f7193">Social Anxiety Disorder</text>
+      <text x="435" y="154" text-anchor="middle" font-size="11.5" fill="#43404e">Fear of social situations where</text>
+      <text x="435" y="171" text-anchor="middle" font-size="11.5" fill="#43404e">one might be scrutinised</text>
+      <text x="435" y="195" text-anchor="middle" font-size="11" font-style="italic" fill="#65616e">speaking, eating, meeting</text>
+      <text x="435" y="211" text-anchor="middle" font-size="11" font-style="italic" fill="#65616e">people, being watched</text>
+      <text x="435" y="233" text-anchor="middle" font-size="10.5" font-weight="700" fill="#4f7193">Fear = NEGATIVE EVALUATION</text>
+
+      <rect x="34" y="256" width="262" height="140" rx="14" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.6"/>
+      <text x="165" y="282" text-anchor="middle" font-size="15" font-weight="700" fill="#a8884e">Panic Disorder</text>
+      <text x="165" y="306" text-anchor="middle" font-size="11.5" fill="#43404e">Recurrent unexpected panic</text>
+      <text x="165" y="323" text-anchor="middle" font-size="11.5" fill="#43404e">attacks + fear of more</text>
+      <text x="165" y="347" text-anchor="middle" font-size="11" font-style="italic" fill="#65616e">"fear of fear" — worry about</text>
+      <text x="165" y="363" text-anchor="middle" font-size="11" font-style="italic" fill="#65616e">the next attack</text>
+      <text x="165" y="385" text-anchor="middle" font-size="10.5" font-weight="700" fill="#a8884e">Fear = THE ATTACK ITSELF</text>
+
+      <rect x="304" y="256" width="262" height="140" rx="14" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.6"/>
+      <text x="435" y="282" text-anchor="middle" font-size="15" font-weight="700" fill="#a8884e">Agoraphobia</text>
+      <text x="435" y="306" text-anchor="middle" font-size="11.5" fill="#43404e">Fear of places where escape</text>
+      <text x="435" y="323" text-anchor="middle" font-size="11.5" fill="#43404e">is hard or help unavailable</text>
+      <text x="435" y="347" text-anchor="middle" font-size="11" font-style="italic" fill="#65616e">crowds, transport, queues,</text>
+      <text x="435" y="363" text-anchor="middle" font-size="11" font-style="italic" fill="#65616e">open spaces, being alone out</text>
+      <text x="435" y="385" text-anchor="middle" font-size="10.5" font-weight="700" fill="#a8884e">Fear = BEING TRAPPED</text>
+    </g>
+    <text x="300" y="424" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">Panic disorder and agoraphobia frequently travel together</text>
+  </svg>`,
+  points:[
+    '<b>Specific phobia</b>: marked, persistent fear of a particular object or situation (spiders, heights, blood, flying). The fear is of <b>the thing</b>.',
+    '<b>Social anxiety disorder</b>: fear of social situations involving possible scrutiny — the core fear is <b>negative evaluation</b> by others.',
+    '<b>Panic disorder</b>: recurrent <b>unexpected panic attacks</b> plus persistent worry about more — essentially a "<b>fear of fear</b>".',
+    '<b>Agoraphobia</b>: fear of situations where escape is difficult or help unavailable if panic strikes — the fear of <b>being trapped</b>.',
+    'All four share the same core: <b>excessive fear/anxiety driving avoidance</b>; panic disorder and agoraphobia often co-occur.'
+  ],
+  hook:'Sort them by <b>what is feared</b>: the thing (phobia), other people\u2019s judgement (social), the attack (panic), being trapped (agoraphobia).'
+});
+LESSONS.push({
+  id:'normal-vs-disorder', cat:'Overview',
+  title:'When Does Anxiety Become a Disorder?',
+  blurb:'The line between everyday nerves and a clinical disorder — four gatekeeping questions.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="20" font-weight="700" fill="#43404e">Normal nerves &#8594; Clinical disorder</text>
+    <!-- spectrum bar -->
+    <defs><linearGradient id="spec" x1="0" x2="1"><stop offset="0" stop-color="#e8efe4"/><stop offset="1" stop-color="#fbeae7"/></linearGradient></defs>
+    <rect x="40" y="52" width="520" height="34" rx="17" fill="url(#spec)" stroke="#e5dce6"/>
+    <text x="120" y="74" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#5f7d59">Adaptive anxiety</text>
+    <text x="480" y="74" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#a8443a">Disorder</text>
+    <path d="M300,90 L300,110" stroke="#9a93a3" stroke-width="1.6"/>
+    <text x="300" y="128" text-anchor="middle" font-family="Cormorant Garamond" font-size="16" font-weight="700" fill="#a8884e">Cross the line only if ALL apply:</text>
+    <!-- four gates -->
+    <g font-family="DM Sans">
+      <rect x="40" y="142" width="252" height="62" rx="11" fill="#fdfbfd" stroke="#c9a96e" stroke-width="1.4"/>
+      <text x="62" y="166" font-size="22" font-weight="700" fill="#c9a96e">1</text>
+      <text x="92" y="164" font-size="12.5" font-weight="700" fill="#43404e">Out of proportion</text>
+      <text x="92" y="184" font-size="11" fill="#65616e">excessive to the actual</text>
+      <text x="92" y="199" font-size="11" fill="#65616e">danger or threat</text>
+
+      <rect x="308" y="142" width="252" height="62" rx="11" fill="#fdfbfd" stroke="#c9a96e" stroke-width="1.4"/>
+      <text x="330" y="166" font-size="22" font-weight="700" fill="#c9a96e">2</text>
+      <text x="360" y="164" font-size="12.5" font-weight="700" fill="#43404e">Persistent</text>
+      <text x="360" y="184" font-size="11" fill="#65616e">typically &#8805; 6 months,</text>
+      <text x="360" y="199" font-size="11" fill="#65616e">not a passing phase</text>
+
+      <rect x="40" y="216" width="252" height="62" rx="11" fill="#fdfbfd" stroke="#c9a96e" stroke-width="1.4"/>
+      <text x="62" y="240" font-size="22" font-weight="700" fill="#c9a96e">3</text>
+      <text x="92" y="238" font-size="12.5" font-weight="700" fill="#43404e">Uncontrollable</text>
+      <text x="92" y="258" font-size="11" fill="#65616e">cannot be reasoned or</text>
+      <text x="92" y="273" font-size="11" fill="#65616e">talked away</text>
+
+      <rect x="308" y="216" width="252" height="62" rx="11" fill="#fdfbfd" stroke="#c9a96e" stroke-width="1.4"/>
+      <text x="330" y="240" font-size="22" font-weight="700" fill="#c9a96e">4</text>
+      <text x="360" y="238" font-size="12.5" font-weight="700" fill="#43404e">Impairing</text>
+      <text x="360" y="258" font-size="11" fill="#65616e">interferes with work,</text>
+      <text x="360" y="273" font-size="11" fill="#65616e">study, relationships</text>
+    </g>
+    <rect x="80" y="300" width="440" height="64" rx="13" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.4"/>
+    <text x="300" y="326" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#4f7193">The result is usually AVOIDANCE</text>
+    <text x="300" y="347" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">which gives short-term relief but maintains the fear long-term</text>
+    <text x="300" y="396" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-style="italic" fill="#65616e">Distress and impairment, not the emotion itself, define the disorder</text>
+  </svg>`,
+  points:[
+    'Anxiety is <b>normal and useful</b>; it becomes a disorder only when it is <b>excessive relative to the real threat</b>.',
+    'Clinical anxiety is <b>persistent</b> (DSM-5 typically requires symptoms lasting <b>6 months or more</b>), not a passing reaction.',
+    'It feels <b>uncontrollable</b> — the person cannot simply reason or talk themselves out of it.',
+    'It causes <b>significant impairment</b> in work, study, or relationships, or marked distress.',
+    'The hallmark behavioural sign is <b>avoidance</b>, which relieves anxiety briefly but keeps the disorder alive.'
+  ],
+  hook:'Four gates: <b>too big, too long, too uncontrollable, too costly</b> — only when all four open does anxiety become a disorder.'
+});
+/* ===== SECTION 2 — DSM-5 DIAGNOSTIC CRITERIA ===== */
+LESSONS.push({
+  id:'dsm-specific-phobia', cat:'Diagnosis',
+  title:'Specific Phobia: DSM-5 Criteria',
+  blurb:'The seven criteria that turn an ordinary fear into a diagnosable specific phobia.',
+  svg:`<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Specific Phobia — DSM-5 checklist</text>
+    <g font-family="DM Sans" font-size="11.5">
+      <rect x="40" y="46" width="520" height="46" rx="10" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.3"/>
+      <text x="60" y="66" font-size="14" font-weight="700" fill="#4f7193">A</text>
+      <text x="80" y="65" font-weight="700" fill="#43404e">Marked fear/anxiety about a specific object or situation</text>
+      <text x="80" y="83" fill="#65616e">e.g. flying, heights, animals, injections, blood</text>
+
+      <rect x="40" y="98" width="520" height="40" rx="10" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="60" y="123" font-size="14" font-weight="700" fill="#4f7193">B</text>
+      <text x="80" y="116" font-weight="700" fill="#43404e">The object/situation almost always provokes immediate fear</text>
+      <text x="80" y="132" fill="#65616e">the reaction is near-instant and reliable</text>
+
+      <rect x="40" y="144" width="520" height="40" rx="10" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="60" y="169" font-size="14" font-weight="700" fill="#4f7193">C</text>
+      <text x="80" y="162" font-weight="700" fill="#43404e">It is actively avoided, or endured with intense fear</text>
+
+      <rect x="40" y="190" width="520" height="40" rx="10" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="60" y="215" font-size="14" font-weight="700" fill="#4f7193">D</text>
+      <text x="80" y="208" font-weight="700" fill="#43404e">Fear is out of proportion to the actual danger</text>
+      <text x="80" y="224" fill="#65616e">(and to the sociocultural context)</text>
+
+      <rect x="40" y="236" width="520" height="34" rx="10" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="60" y="258" font-size="14" font-weight="700" fill="#4f7193">E</text>
+      <text x="80" y="257" font-weight="700" fill="#43404e">Persistent — typically lasting 6 months or more</text>
+
+      <rect x="40" y="276" width="520" height="34" rx="10" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="60" y="298" font-size="14" font-weight="700" fill="#4f7193">F</text>
+      <text x="80" y="297" font-weight="700" fill="#43404e">Causes clinically significant distress or impairment</text>
+
+      <rect x="40" y="316" width="520" height="34" rx="10" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="60" y="338" font-size="14" font-weight="700" fill="#4f7193">G</text>
+      <text x="80" y="337" font-weight="700" fill="#43404e">Not better explained by another mental disorder</text>
+    </g>
+    <rect x="40" y="364" width="520" height="62" rx="12" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+    <text x="300" y="388" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#5f7d59">Key insight: insight is intact</text>
+    <text x="300" y="408" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">Sufferers usually KNOW the fear is excessive — but cannot control the reaction</text>
+  </svg>`,
+  points:[
+    'Criterion A: a <b>marked fear or anxiety</b> about a specific object or situation that is the focus of the phobia.',
+    'The phobic stimulus <b>almost always provokes immediate fear</b> (B) and is <b>actively avoided</b> or endured with intense distress (C).',
+    'The fear is <b>out of proportion</b> to the actual danger posed (D) and <b>persists for 6 months or more</b> (E).',
+    'It must cause <b>significant distress or impairment</b> (F) and not be better explained by another disorder (G).',
+    'Sufferers typically <b>recognise their fear is excessive</b> — insight is intact, yet the reaction is still uncontrollable.'
+  ],
+  hook:'Phobia = "<b>I KNOW it\u2019s irrational, but I still can\u2019t go near it</b>" — fear, avoidance, out of proportion, 6+ months, impairing.'
+});
+LESSONS.push({
+  id:'dsm-social-anxiety', cat:'Diagnosis',
+  title:'Social Anxiety Disorder: DSM-5 Criteria',
+  blurb:'The criteria for SAD — and the single fear that sits at its core: negative evaluation.',
+  svg:`<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Social Anxiety Disorder — DSM-5</text>
+    <!-- core fear -->
+    <ellipse cx="300" cy="78" rx="200" ry="30" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.6"/>
+    <text x="300" y="74" text-anchor="middle" font-family="Cormorant Garamond" font-size="16" font-weight="700" fill="#4f7193">Core fear: being negatively evaluated</text>
+    <text x="300" y="92" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">judged, embarrassed, humiliated, rejected</text>
+    <g font-family="DM Sans" font-size="11.5">
+      <rect x="40" y="120" width="520" height="44" rx="10" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="60" y="143" font-size="13" font-weight="700" fill="#4f7193">A</text>
+      <text x="80" y="138" font-weight="700" fill="#43404e">Marked fear of social situations involving possible scrutiny</text>
+      <text x="80" y="156" fill="#65616e">conversations, meeting new people, eating, performing, being observed</text>
+
+      <rect x="40" y="170" width="520" height="44" rx="10" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="60" y="193" font-size="13" font-weight="700" fill="#4f7193">B</text>
+      <text x="80" y="188" font-weight="700" fill="#43404e">Fears acting in a way that will be negatively evaluated</text>
+      <text x="80" y="206" fill="#65616e">showing anxiety symptoms, being humiliating or rejected</text>
+
+      <rect x="40" y="220" width="252" height="44" rx="10" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="60" y="243" font-size="13" font-weight="700" fill="#4f7193">C</text>
+      <text x="80" y="240" font-weight="700" fill="#43404e">Situations almost</text>
+      <text x="80" y="256" fill="#65616e">always provoke anxiety</text>
+
+      <rect x="308" y="220" width="252" height="44" rx="10" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="328" y="243" font-size="13" font-weight="700" fill="#4f7193">D</text>
+      <text x="348" y="240" font-weight="700" fill="#43404e">Avoided or endured</text>
+      <text x="348" y="256" fill="#65616e">with intense fear</text>
+
+      <rect x="40" y="270" width="252" height="44" rx="10" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="60" y="293" font-size="13" font-weight="700" fill="#4f7193">E</text>
+      <text x="80" y="290" font-weight="700" fill="#43404e">Out of proportion to</text>
+      <text x="80" y="306" fill="#65616e">the real threat</text>
+
+      <rect x="308" y="270" width="252" height="44" rx="10" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="328" y="293" font-size="13" font-weight="700" fill="#4f7193">F</text>
+      <text x="348" y="290" font-weight="700" fill="#43404e">Persistent (&#8805; 6</text>
+      <text x="348" y="306" fill="#65616e">months) &amp; impairing</text>
+    </g>
+    <rect x="40" y="328" width="520" height="48" rx="11" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.4"/>
+    <text x="300" y="350" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#a8884e">Specifier: "performance only"</text>
+    <text x="300" y="368" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">if fear is restricted to public speaking / performing</text>
+    <text x="300" y="404" text-anchor="middle" font-family="DM Sans" font-size="11" font-style="italic" fill="#65616e">In adults the person recognises the fear is excessive; in children it may show as crying, freezing or tantrums</text>
+  </svg>`,
+  points:[
+    'Criterion A: <b>marked fear of one or more social situations</b> where the person may be exposed to <b>scrutiny</b> by others.',
+    'The central fear (B) is acting in a way — or showing anxiety — that will be <b>negatively evaluated</b>: humiliating, embarrassing, or leading to rejection.',
+    'Social situations <b>almost always provoke anxiety</b> (C) and are <b>avoided or endured with intense fear</b> (D).',
+    'As with phobia: the fear is <b>out of proportion</b> (E), lasts <b>6+ months</b>, and causes significant impairment (F).',
+    'A <b>"performance only" specifier</b> applies when the fear is limited to public speaking or performing.'
+  ],
+  hook:'SAD is fear of the <b>audience in your head</b> — every social moment feels like a test you\u2019re about to fail in front of others.'
+});
+LESSONS.push({
+  id:'dsm-panic-attack', cat:'Diagnosis',
+  title:'Panic Attack: The Building Block',
+  blurb:'A panic attack is not itself a disorder — it is a symptom that can appear across many conditions.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">The Panic Attack — DSM-5 definition</text>
+    <rect x="90" y="48" width="420" height="58" rx="13" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.6"/>
+    <text x="300" y="72" text-anchor="middle" font-family="Cormorant Garamond" font-size="16" font-weight="700" fill="#a8443a">Abrupt surge of intense fear / discomfort</text>
+    <text x="300" y="93" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">peaks within MINUTES — &#8805; 4 of 13 symptoms</text>
+    <!-- timeline -->
+    <text x="300" y="130" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#4f7193">Sudden onset &#8594; rapid peak &#8594; gradual fall</text>
+    <path d="M70,210 Q90,210 110,205 Q150,150 175,148 Q210,150 250,205 Q290,255 330,250 L530,250" fill="none" stroke="#cf6b5e" stroke-width="2.4"/>
+    <line x1="70" y1="250" x2="530" y2="250" stroke="#9a93a3" stroke-width="1"/>
+    <text x="175" y="138" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-weight="700" fill="#a8443a">PEAK &lt; 10 min</text>
+    <text x="500" y="268" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">subsides</text>
+    <!-- two types -->
+    <rect x="60" y="288" width="226" height="58" rx="12" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.4"/>
+    <text x="173" y="312" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#4f7193">Expected (cued)</text>
+    <text x="173" y="332" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">triggered by an obvious cue</text>
+    <rect x="314" y="288" width="226" height="58" rx="12" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.4"/>
+    <text x="427" y="312" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#a8884e">Unexpected (uncued)</text>
+    <text x="427" y="332" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">out of the blue &#8594; panic disorder</text>
+    <text x="300" y="378" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#5f7d59">A panic attack is a SPECIFIER, not a diagnosis</text>
+    <text x="300" y="400" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">It can occur in any anxiety disorder, depression, PTSD or medical conditions</text>
+  </svg>`,
+  points:[
+    'A panic attack is an <b>abrupt surge of intense fear or discomfort</b> that <b>peaks within minutes</b>.',
+    'It requires <b>4 or more of 13 symptoms</b> (e.g. palpitations, sweating, choking, chest pain, dizziness, fear of dying).',
+    'Attacks can be <b>expected/cued</b> (tied to a clear trigger) or <b>unexpected/uncued</b> (out of the blue).',
+    '<b>Unexpected attacks are the hallmark of panic disorder</b>; cued attacks occur in phobias and other disorders.',
+    'Crucially, a panic attack is a <b>specifier, not a diagnosis</b> — it can appear in many disorders and even medical conditions.'
+  ],
+  hook:'Picture a <b>spike on a graph</b>: zero to terror in minutes, then a fall. The attack is the spike; the diagnosis depends on WHY it fires.'
+});
+LESSONS.push({
+  id:'dsm-panic-disorder', cat:'Diagnosis',
+  title:'Panic Disorder: DSM-5 Criteria',
+  blurb:'What turns isolated panic attacks into panic disorder — the month of worry that follows.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Panic Disorder — DSM-5</text>
+    <!-- A -->
+    <rect x="50" y="50" width="500" height="56" rx="12" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.6"/>
+    <text x="74" y="78" font-family="DM Sans" font-size="16" font-weight="700" fill="#a8884e">A</text>
+    <text x="100" y="74" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#43404e">Recurrent UNEXPECTED panic attacks</text>
+    <text x="100" y="93" font-family="DM Sans" font-size="10.5" fill="#65616e">attacks that arrive out of the blue, with no obvious trigger</text>
+    <path d="M300,106 L300,124" stroke="#9a93a3" stroke-width="1.6" marker-end="url(#arrPD)"/>
+    <defs><marker id="arrPD" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#9a93a3"/></marker></defs>
+    <!-- B -->
+    <rect x="50" y="126" width="500" height="118" rx="12" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.6"/>
+    <text x="74" y="152" font-family="DM Sans" font-size="16" font-weight="700" fill="#4f7193">B</text>
+    <text x="100" y="150" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#43404e">&#8805; 1 month of ONE (or both) of the following:</text>
+    <rect x="78" y="162" width="210" height="68" rx="10" fill="#fdfbfd" stroke="#c6d6e3"/>
+    <text x="183" y="184" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#4f7193">Persistent worry</text>
+    <text x="183" y="202" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">about having more</text>
+    <text x="183" y="217" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">attacks / their meaning</text>
+    <rect x="312" y="162" width="210" height="68" rx="10" fill="#fdfbfd" stroke="#c6d6e3"/>
+    <text x="417" y="184" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#4f7193">Behaviour change</text>
+    <text x="417" y="202" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">avoidance / safety acts</text>
+    <text x="417" y="217" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">to prevent attacks</text>
+    <!-- C D -->
+    <rect x="50" y="256" width="245" height="56" rx="11" fill="#fdfbfd" stroke="#c9a96e" stroke-width="1.2"/>
+    <text x="72" y="280" font-family="DM Sans" font-size="14" font-weight="700" fill="#a8884e">C</text>
+    <text x="92" y="278" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#43404e">Not due to a drug</text>
+    <text x="92" y="296" font-family="DM Sans" font-size="10.5" fill="#65616e">or medical condition</text>
+    <rect x="305" y="256" width="245" height="56" rx="11" fill="#fdfbfd" stroke="#c9a96e" stroke-width="1.2"/>
+    <text x="327" y="280" font-family="DM Sans" font-size="14" font-weight="700" fill="#a8884e">D</text>
+    <text x="347" y="278" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#43404e">Not better explained</text>
+    <text x="347" y="296" font-family="DM Sans" font-size="10.5" fill="#65616e">by another disorder</text>
+    <rect x="50" y="326" width="500" height="62" rx="13" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+    <text x="300" y="350" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#5f7d59">The defining feature is the "FEAR OF FEAR"</text>
+    <text x="300" y="370" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">It is the worry ABOUT attacks — not the attacks alone — that makes the disorder</text>
+  </svg>`,
+  points:[
+    'Criterion A requires <b>recurrent unexpected panic attacks</b> — attacks that come out of the blue, without an identifiable cue.',
+    'Criterion B is the key addition: <b>at least one month</b> of persistent <b>worry about more attacks</b>, and/or a <b>maladaptive change in behaviour</b> to avoid them.',
+    'It must not be due to a <b>substance or medical condition</b> (C) and not better explained by another disorder (D).',
+    'The defining feature is the "<b>fear of fear</b>": the apprehension about the attacks themselves.',
+    'Behaviour change can include avoiding exercise, caffeine, or situations associated with previous attacks.'
+  ],
+  hook:'One panic attack isn\u2019t panic disorder. It becomes the disorder when you spend <b>a month dreading the next one</b>.'
+});
+LESSONS.push({
+  id:'dsm-agoraphobia', cat:'Diagnosis',
+  title:'Agoraphobia: DSM-5 Criteria',
+  blurb:'Not simply "fear of open spaces" — a fear of situations where escape or help feels impossible.',
+  svg:`<svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Agoraphobia — DSM-5</text>
+    <rect x="60" y="46" width="480" height="50" rx="12" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.6"/>
+    <text x="300" y="68" text-anchor="middle" font-family="Cormorant Garamond" font-size="15" font-weight="700" fill="#a8884e">Criterion A: marked fear of &#8805; 2 of 5 situations</text>
+    <text x="300" y="87" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">because escape may be hard or help unavailable if panic-like symptoms occur</text>
+    <!-- five situations -->
+    <g font-family="DM Sans" font-size="10.5" fill="#43404e">
+      <rect x="40" y="108" width="100" height="58" rx="10" fill="#e6edf3" stroke="#6f8fae"/>
+      <text x="90" y="132" text-anchor="middle" font-weight="700" fill="#4f7193">Public</text>
+      <text x="90" y="148" text-anchor="middle">transport</text>
+      <rect x="150" y="108" width="100" height="58" rx="10" fill="#e6edf3" stroke="#6f8fae"/>
+      <text x="200" y="132" text-anchor="middle" font-weight="700" fill="#4f7193">Open</text>
+      <text x="200" y="148" text-anchor="middle">spaces</text>
+      <rect x="260" y="108" width="100" height="58" rx="10" fill="#e6edf3" stroke="#6f8fae"/>
+      <text x="310" y="132" text-anchor="middle" font-weight="700" fill="#4f7193">Enclosed</text>
+      <text x="310" y="148" text-anchor="middle">places</text>
+      <rect x="370" y="108" width="100" height="58" rx="10" fill="#e6edf3" stroke="#6f8fae"/>
+      <text x="420" y="132" text-anchor="middle" font-weight="700" fill="#4f7193">Queues /</text>
+      <text x="420" y="148" text-anchor="middle">crowds</text>
+      <rect x="480" y="108" width="80" height="58" rx="10" fill="#e6edf3" stroke="#6f8fae"/>
+      <text x="520" y="132" text-anchor="middle" font-weight="700" fill="#4f7193">Outside</text>
+      <text x="520" y="148" text-anchor="middle">alone</text>
+    </g>
+    <g font-family="DM Sans" font-size="11.5">
+      <rect x="40" y="180" width="520" height="34" rx="9" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="58" y="202" font-size="13" font-weight="700" fill="#4f7193">B</text>
+      <text x="78" y="201" fill="#43404e">Situations feared because escape/help would be difficult</text>
+      <rect x="40" y="220" width="520" height="34" rx="9" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="58" y="242" font-size="13" font-weight="700" fill="#4f7193">C</text>
+      <text x="78" y="241" fill="#43404e">Situations almost always provoke fear or anxiety</text>
+      <rect x="40" y="260" width="520" height="34" rx="9" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="58" y="282" font-size="13" font-weight="700" fill="#4f7193">D</text>
+      <text x="78" y="281" fill="#43404e">Actively avoided, need a companion, or endured with dread</text>
+      <rect x="40" y="300" width="520" height="34" rx="9" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.2"/>
+      <text x="58" y="322" font-size="13" font-weight="700" fill="#4f7193">E-G</text>
+      <text x="90" y="321" fill="#43404e">Out of proportion · &#8805; 6 months · significant impairment</text>
+    </g>
+    <rect x="40" y="346" width="520" height="62" rx="13" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+    <text x="300" y="370" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#5f7d59">Diagnosed independently of panic disorder</text>
+    <text x="300" y="390" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">In DSM-5 a person can be given BOTH diagnoses if criteria are met</text>
+  </svg>`,
+  points:[
+    'Criterion A: marked fear about <b>at least two of five situations</b> — public transport, open spaces, enclosed places, queues/crowds, or being outside the home alone.',
+    'These situations are feared because <b>escape might be difficult or help unavailable</b> if panic-like or embarrassing symptoms occur (B).',
+    'They <b>almost always provoke fear</b> (C) and are <b>avoided, require a companion, or endured with intense dread</b> (D).',
+    'As usual: fear is <b>out of proportion</b>, lasts <b>6+ months</b>, and is <b>impairing</b> (E–G).',
+    'In DSM-5 agoraphobia is a <b>separate diagnosis</b> from panic disorder — a person can be given both.'
+  ],
+  hook:'Agoraphobia isn\u2019t "fear of outside" — it\u2019s fear of being <b>somewhere you can\u2019t easily escape or get help</b> if things go wrong.'
+});
+/* ===== SECTION 3 — CORE CHARACTERISTICS IN DETAIL ===== */
+LESSONS.push({
+  id:'phobia-subtypes', cat:'Characteristics',
+  title:'The Five Specific Phobia Subtypes',
+  blurb:'DSM-5 sorts phobias into five families — each with its own typical age, sex ratio and physiology.',
+  svg:`<svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Five Specific-Phobia Subtypes</text>
+    <g font-family="DM Sans">
+      <rect x="36" y="50" width="528" height="62" rx="11" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+      <circle cx="70" cy="81" r="16" fill="#fff" stroke="#5f7d59" stroke-width="1.4"/><text x="70" y="86" text-anchor="middle" font-size="16">&#128375;</text>
+      <text x="100" y="76" font-size="13.5" font-weight="700" fill="#5f7d59">1 · Animal</text>
+      <text x="100" y="95" font-size="11" fill="#65616e">spiders, snakes, dogs, insects — usually begins in childhood</text>
+      <text x="540" y="86" text-anchor="end" font-size="10.5" font-style="italic" fill="#7d9b76">most common</text>
+
+      <rect x="36" y="120" width="528" height="62" rx="11" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+      <circle cx="70" cy="151" r="16" fill="#fff" stroke="#5f7d59" stroke-width="1.4"/><text x="70" y="156" text-anchor="middle" font-size="15">&#127777;</text>
+      <text x="100" y="146" font-size="13.5" font-weight="700" fill="#5f7d59">2 · Natural environment</text>
+      <text x="100" y="165" font-size="11" fill="#65616e">heights, storms, water, the dark</text>
+
+      <rect x="36" y="190" width="528" height="62" rx="11" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.6"/>
+      <circle cx="70" cy="221" r="16" fill="#fff" stroke="#a8443a" stroke-width="1.4"/><text x="70" y="226" text-anchor="middle" font-size="15">&#129656;</text>
+      <text x="100" y="216" font-size="13.5" font-weight="700" fill="#a8443a">3 · Blood-Injection-Injury</text>
+      <text x="100" y="235" font-size="11" fill="#65616e">blood, needles, wounds — UNIQUE: can cause FAINTING</text>
+
+      <rect x="36" y="260" width="528" height="62" rx="11" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+      <circle cx="70" cy="291" r="16" fill="#fff" stroke="#5f7d59" stroke-width="1.4"/><text x="70" y="296" text-anchor="middle" font-size="15">&#9992;</text>
+      <text x="100" y="286" font-size="13.5" font-weight="700" fill="#5f7d59">4 · Situational</text>
+      <text x="100" y="305" font-size="11" fill="#65616e">flying, lifts, enclosed spaces, driving, tunnels</text>
+
+      <rect x="36" y="330" width="528" height="62" rx="11" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+      <circle cx="70" cy="361" r="16" fill="#fff" stroke="#5f7d59" stroke-width="1.4"/><text x="70" y="366" text-anchor="middle" font-size="15">&#10067;</text>
+      <text x="100" y="356" font-size="13.5" font-weight="700" fill="#5f7d59">5 · Other</text>
+      <text x="100" y="375" font-size="11" fill="#65616e">choking, vomiting, loud sounds, costumed characters (children)</text>
+    </g>
+    <text x="300" y="418" text-anchor="middle" font-family="DM Sans" font-size="11" font-style="italic" fill="#65616e">Most people with a phobia fear more than one object or situation</text>
+  </svg>`,
+  points:[
+    '<b>Animal type</b> (spiders, snakes, dogs) is the <b>most common</b> and usually begins in early childhood.',
+    '<b>Natural environment type</b> covers heights, storms, water, and the dark.',
+    '<b>Blood-injection-injury (BII) type</b> is unique — it can trigger <b>fainting</b> via a drop in blood pressure (covered next).',
+    '<b>Situational type</b> includes flying, lifts, enclosed spaces, and driving; <b>"other"</b> captures choking, vomiting and (in children) costumed figures.',
+    'Most sufferers have <b>more than one</b> phobia, and subtypes differ in typical age of onset and sex ratio.'
+  ],
+  hook:'Remember <b>"A-N-B-S-O"</b>: Animal, Natural environment, Blood-injury, Situational, Other — and only the B type can make you faint.'
+});
+LESSONS.push({
+  id:'bii-phobia', cat:'Characteristics',
+  title:'Blood-Injection-Injury Phobia & Fainting',
+  blurb:'The one phobia with a paradoxical, two-stage physiology — and why sufferers actually pass out.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">The Diphasic (two-phase) Response</text>
+    <text x="300" y="52" text-anchor="middle" font-family="DM Sans" font-size="11.5" fill="#65616e">Unique to Blood-Injection-Injury phobia</text>
+    <rect x="80" y="70" width="440" height="40" rx="10" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.4"/>
+    <text x="300" y="95" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#a8443a">Sees blood / needle / injury</text>
+    <!-- phase 1 -->
+    <path d="M300,110 L300,128" stroke="#9a93a3" stroke-width="1.6" marker-end="url(#arrBII)"/>
+    <defs><marker id="arrBII" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#9a93a3"/></marker></defs>
+    <rect x="60" y="132" width="480" height="70" rx="12" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.6"/>
+    <text x="300" y="156" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#a8884e">PHASE 1 · brief rise</text>
+    <text x="300" y="177" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">heart rate &amp; blood pressure SPIKE (like any fear)</text>
+    <text x="300" y="194" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">lasts only a few seconds</text>
+    <path d="M300,202 L300,220" stroke="#9a93a3" stroke-width="1.6" marker-end="url(#arrBII)"/>
+    <!-- phase 2 -->
+    <rect x="60" y="224" width="480" height="84" rx="12" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.8"/>
+    <text x="300" y="248" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#4f7193">PHASE 2 · sudden DROP</text>
+    <text x="300" y="269" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">blood pressure &amp; heart rate plunge (vasovagal response)</text>
+    <text x="300" y="287" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#4f7193">&#8594; dizziness, nausea, FAINTING</text>
+    <text x="300" y="302" text-anchor="middle" font-family="DM Sans" font-size="10" font-style="italic" fill="#65616e">~75% of BII sufferers have fainted</text>
+    <rect x="60" y="326" width="480" height="76" rx="13" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+    <text x="300" y="350" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#5f7d59">Treatment implication: APPLIED TENSION</text>
+    <text x="300" y="371" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">tense the muscles to RAISE blood pressure and prevent the faint —</text>
+    <text x="300" y="388" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">the opposite of relaxation used for other phobias</text>
+  </svg>`,
+  points:[
+    'BII phobia produces a <b>diphasic (two-phase) physiological response</b> — unlike every other phobia.',
+    '<b>Phase 1</b>: a brief, normal <b>rise</b> in heart rate and blood pressure on seeing blood/needles.',
+    '<b>Phase 2</b>: a sudden <b>drop</b> in blood pressure and heart rate (a <b>vasovagal response</b>) causing dizziness, nausea and <b>fainting</b>.',
+    'Around <b>three-quarters of BII sufferers have fainted</b> — fear of fainting itself becomes part of the problem.',
+    'This is why the treatment is <b>applied tension</b> (tensing muscles to raise blood pressure), not relaxation.'
+  ],
+  hook:'BII is the "<b>up-then-DOWN</b>" phobia: a quick spike, then a crash that drops you to the floor. Fix it by <b>pushing pressure back UP</b>.'
+});
+LESSONS.push({
+  id:'social-anxiety-detail', cat:'Characteristics',
+  title:'Inside Social Anxiety Disorder',
+  blurb:'More than shyness — the self-focused, evaluation-driven engine that keeps social anxiety running.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">What Drives Social Anxiety</text>
+    <!-- central -->
+    <ellipse cx="300" cy="78" rx="170" ry="30" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.8"/>
+    <text x="300" y="74" text-anchor="middle" font-family="Cormorant Garamond" font-size="15" font-weight="700" fill="#4f7193">Fear of negative evaluation</text>
+    <text x="300" y="92" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">"others will see I\u2019m anxious / awkward / incompetent"</text>
+    <!-- three feeding boxes -->
+    <g font-family="DM Sans" font-size="10.5" fill="#43404e">
+      <rect x="36" y="128" width="168" height="84" rx="11" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.3"/>
+      <text x="120" y="150" text-anchor="middle" font-size="12" font-weight="700" fill="#4f7193">Self-focused</text>
+      <text x="120" y="166" text-anchor="middle" font-size="12" font-weight="700" fill="#4f7193">attention</text>
+      <text x="120" y="186" text-anchor="middle">monitors own body</text>
+      <text x="120" y="201" text-anchor="middle">&amp; performance closely</text>
+
+      <rect x="216" y="128" width="168" height="84" rx="11" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.3"/>
+      <text x="300" y="150" text-anchor="middle" font-size="12" font-weight="700" fill="#4f7193">Safety behaviours</text>
+      <text x="300" y="170" text-anchor="middle">avoid eye contact,</text>
+      <text x="300" y="185" text-anchor="middle">rehearse sentences,</text>
+      <text x="300" y="200" text-anchor="middle">grip glass, stay quiet</text>
+
+      <rect x="396" y="128" width="168" height="84" rx="11" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.3"/>
+      <text x="480" y="150" text-anchor="middle" font-size="12" font-weight="700" fill="#4f7193">Post-event</text>
+      <text x="480" y="166" text-anchor="middle" font-size="12" font-weight="700" fill="#4f7193">rumination</text>
+      <text x="480" y="186" text-anchor="middle">replays the event,</text>
+      <text x="480" y="201" text-anchor="middle">picks out "failures"</text>
+    </g>
+    <path d="M120,128 L270,104" stroke="#6f8fae" stroke-width="1.3"/>
+    <path d="M300,128 L300,108" stroke="#6f8fae" stroke-width="1.3"/>
+    <path d="M480,128 L330,104" stroke="#6f8fae" stroke-width="1.3"/>
+    <rect x="60" y="234" width="480" height="58" rx="12" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.4"/>
+    <text x="300" y="258" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#a8443a">The safety behaviours BACKFIRE</text>
+    <text x="300" y="278" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">they prevent disconfirmation &amp; can make the person seem aloof</text>
+    <rect x="60" y="308" width="480" height="58" rx="12" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+    <text x="300" y="332" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#5f7d59">Shyness &#8800; Social Anxiety Disorder</text>
+    <text x="300" y="352" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">SAD involves marked impairment and active avoidance, not just discomfort</text>
+    <text x="300" y="398" text-anchor="middle" font-family="DM Sans" font-size="11" font-style="italic" fill="#65616e">Onset is typically in adolescence; it is one of the most common anxiety disorders</text>
+  </svg>`,
+  points:[
+    'The engine of SAD is the <b>fear of negative evaluation</b> — the conviction that others will judge you as anxious, awkward or incompetent.',
+    'Sufferers turn attention <b>inward (self-focused attention)</b>, monitoring their own body and performance instead of the conversation.',
+    'They use <b>safety behaviours</b> (avoiding eye contact, rehearsing sentences, gripping objects) that <b>backfire</b> by preventing disconfirmation.',
+    'After events they engage in <b>post-event rumination</b>, replaying and exaggerating perceived failures.',
+    '<b>Shyness is not SAD</b>: the disorder involves marked impairment and avoidance, and typically begins in adolescence.'
+  ],
+  hook:'In SAD the spotlight points <b>inward</b>: you watch yourself so hard you stop seeing the room — and the "fixes" make it worse.'
+});
+LESSONS.push({
+  id:'panic-symptoms', cat:'Characteristics',
+  title:'The 13 Panic Attack Symptoms',
+  blurb:'The DSM-5 symptom list — you need 4 — sorted into body, head and dread.',
+  svg:`<svg viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="28" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">13 Symptoms — need &#8805; 4 for an attack</text>
+    <!-- BODY -->
+    <rect x="30" y="46" width="540" height="150" rx="13" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.5"/>
+    <text x="50" y="68" font-family="DM Sans" font-size="13" font-weight="700" fill="#a8443a">CARDIO-RESPIRATORY &amp; BODY</text>
+    <g font-family="DM Sans" font-size="11" fill="#43404e">
+      <text x="56" y="92">&#9679; Pounding heart / palpitations</text>
+      <text x="56" y="113">&#9679; Sweating</text>
+      <text x="56" y="134">&#9679; Trembling or shaking</text>
+      <text x="56" y="155">&#9679; Shortness of breath</text>
+      <text x="56" y="176">&#9679; Feeling of choking</text>
+      <text x="320" y="92">&#9679; Chest pain or discomfort</text>
+      <text x="320" y="113">&#9679; Nausea / abdominal distress</text>
+      <text x="320" y="134">&#9679; Chills or heat sensations</text>
+      <text x="320" y="155">&#9679; Numbness or tingling (paraesthesia)</text>
+    </g>
+    <!-- HEAD -->
+    <rect x="30" y="206" width="540" height="92" rx="13" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.5"/>
+    <text x="50" y="228" font-family="DM Sans" font-size="13" font-weight="700" fill="#4f7193">HEAD / SENSATIONS</text>
+    <g font-family="DM Sans" font-size="11" fill="#43404e">
+      <text x="56" y="252">&#9679; Dizziness, light-headedness, faintness</text>
+      <text x="56" y="277">&#9679; Derealisation / depersonalisation</text>
+      <text x="320" y="252">&#9679; "Detached from myself / unreal" feeling</text>
+      <text x="320" y="277">&#9679; (these frighten people the most)</text>
+    </g>
+    <!-- DREAD -->
+    <rect x="30" y="308" width="540" height="92" rx="13" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.5"/>
+    <text x="50" y="330" font-family="DM Sans" font-size="13" font-weight="700" fill="#a8884e">CATASTROPHIC FEARS</text>
+    <g font-family="DM Sans" font-size="11" fill="#43404e">
+      <text x="56" y="356">&#9679; Fear of losing control or "going crazy"</text>
+      <text x="56" y="381">&#9679; Fear of dying</text>
+      <text x="320" y="356">These cognitions FUEL the attack</text>
+      <text x="320" y="381">&#8594; the catastrophic misinterpretation loop</text>
+    </g>
+    <text x="300" y="428" text-anchor="middle" font-family="DM Sans" font-size="11" font-style="italic" fill="#65616e">Fewer than 4 symptoms = a "limited-symptom attack"</text>
+  </svg>`,
+  points:[
+    'A panic attack needs <b>at least 4 of 13</b> symptoms; fewer is a "<b>limited-symptom attack</b>".',
+    '<b>Body symptoms</b>: pounding heart, sweating, trembling, shortness of breath, choking, chest pain, nausea, chills/heat, and tingling.',
+    '<b>Head symptoms</b>: dizziness/faintness and <b>derealisation/depersonalisation</b> (feeling unreal or detached) — often the most frightening.',
+    '<b>Catastrophic fears</b>: fear of <b>losing control / "going crazy"</b> and fear of <b>dying</b>.',
+    'The catastrophic cognitions <b>fuel the attack</b>, feeding the vicious cycle of panic.'
+  ],
+  hook:'Three buckets: <b>body</b> (heart, breath, sweat), <b>head</b> (dizzy, unreal), <b>dread</b> (dying, going crazy). Any four = an attack.'
+});
+LESSONS.push({
+  id:'agora-situations', cat:'Characteristics',
+  title:'Agoraphobia: The Feared Situations',
+  blurb:'Why such different places — buses, bridges, queues, lifts — all belong to one disorder.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">One thread links every agoraphobic situation</text>
+    <!-- center -->
+    <circle cx="300" cy="220" r="78" fill="#f4eee1" stroke="#c9a96e" stroke-width="2"/>
+    <text x="300" y="210" text-anchor="middle" font-family="Cormorant Garamond" font-size="15" font-weight="700" fill="#a8884e">"What if I panic</text>
+    <text x="300" y="230" text-anchor="middle" font-family="Cormorant Garamond" font-size="15" font-weight="700" fill="#a8884e">and CAN\u2019T escape</text>
+    <text x="300" y="250" text-anchor="middle" font-family="Cormorant Garamond" font-size="15" font-weight="700" fill="#a8884e">or get help?"</text>
+    <!-- five satellites -->
+    <g font-family="DM Sans" font-size="11" fill="#43404e">
+      <rect x="40" y="70" width="150" height="54" rx="11" fill="#e6edf3" stroke="#6f8fae"/>
+      <text x="115" y="92" text-anchor="middle" font-weight="700" fill="#4f7193">Public transport</text>
+      <text x="115" y="110" text-anchor="middle" font-size="10">buses, trains, planes</text>
+      <rect x="410" y="70" width="150" height="54" rx="11" fill="#e6edf3" stroke="#6f8fae"/>
+      <text x="485" y="92" text-anchor="middle" font-weight="700" fill="#4f7193">Open spaces</text>
+      <text x="485" y="110" text-anchor="middle" font-size="10">markets, car parks, bridges</text>
+      <rect x="30" y="310" width="150" height="54" rx="11" fill="#e6edf3" stroke="#6f8fae"/>
+      <text x="105" y="332" text-anchor="middle" font-weight="700" fill="#4f7193">Enclosed places</text>
+      <text x="105" y="350" text-anchor="middle" font-size="10">shops, cinemas, lifts</text>
+      <rect x="420" y="310" width="150" height="54" rx="11" fill="#e6edf3" stroke="#6f8fae"/>
+      <text x="495" y="332" text-anchor="middle" font-weight="700" fill="#4f7193">Queues / crowds</text>
+      <text x="495" y="350" text-anchor="middle" font-size="10">standing in line, festivals</text>
+      <rect x="225" y="356" width="150" height="50" rx="11" fill="#e6edf3" stroke="#6f8fae"/>
+      <text x="300" y="377" text-anchor="middle" font-weight="700" fill="#4f7193">Outside alone</text>
+      <text x="300" y="394" text-anchor="middle" font-size="10">away from home, no companion</text>
+    </g>
+    <path d="M190,108 L240,175" stroke="#c9a96e" stroke-width="1.4"/>
+    <path d="M410,108 L360,175" stroke="#c9a96e" stroke-width="1.4"/>
+    <path d="M180,320 L235,260" stroke="#c9a96e" stroke-width="1.4"/>
+    <path d="M420,320 L365,260" stroke="#c9a96e" stroke-width="1.4"/>
+    <path d="M300,356 L300,298" stroke="#c9a96e" stroke-width="1.4"/>
+  </svg>`,
+  points:[
+    'The five clusters are <b>public transport, open spaces, enclosed places, queues/crowds, and being outside the home alone</b>.',
+    'They look different but share one common thread: each is a place where <b>escape would be hard or help unavailable</b> if panic struck.',
+    'The fear is really about the <b>consequences of panicking in that situation</b> — being trapped, helpless, or embarrassed.',
+    'A diagnosis requires fear of <b>at least two</b> of the five clusters.',
+    'This is why agoraphobia so often follows panic disorder: the person maps out and avoids "unsafe" places.'
+  ],
+  hook:'Don\u2019t memorise the places — memorise the <b>thread</b>: "somewhere I can\u2019t easily get out or get help." Every situation fits that.'
+});
+LESSONS.push({
+  id:'comorbidity', cat:'Characteristics',
+  title:'Comorbidity in Anxiety Disorders',
+  blurb:'Anxiety disorders rarely travel alone — overlap with each other and with depression is the rule.',
+  svg:`<svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Comorbidity is the rule, not the exception</text>
+    <!-- venn-ish -->
+    <circle cx="245" cy="170" r="100" fill="#e6edf3" opacity="0.7" stroke="#6f8fae" stroke-width="1.6"/>
+    <circle cx="355" cy="170" r="100" fill="#f4eee1" opacity="0.7" stroke="#c9a96e" stroke-width="1.6"/>
+    <text x="195" y="150" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#4f7193">Anxiety</text>
+    <text x="195" y="168" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#4f7193">disorders</text>
+    <text x="405" y="150" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#a8884e">Depression</text>
+    <text x="405" y="168" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#a8884e">&amp; substance use</text>
+    <text x="300" y="165" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#43404e">large</text>
+    <text x="300" y="181" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#43404e">overlap</text>
+    <g font-family="DM Sans" font-size="11" fill="#43404e">
+      <rect x="60" y="290" width="220" height="50" rx="10" fill="#e8efe4" stroke="#7d9b76"/>
+      <text x="170" y="312" text-anchor="middle" font-weight="700" fill="#5f7d59">Anxiety often comes FIRST</text>
+      <text x="170" y="330" text-anchor="middle" font-size="10">depression frequently follows</text>
+      <rect x="320" y="290" width="220" height="50" rx="10" fill="#e8efe4" stroke="#7d9b76"/>
+      <text x="430" y="312" text-anchor="middle" font-weight="700" fill="#5f7d59">Multiple anxiety disorders</text>
+      <text x="430" y="330" text-anchor="middle" font-size="10">co-occur in the same person</text>
+    </g>
+    <text x="300" y="372" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8884e">Comorbidity &#8594; greater severity, more impairment, poorer prognosis</text>
+    <text x="300" y="396" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">and it complicates both diagnosis and treatment</text>
+  </svg>`,
+  points:[
+    'Anxiety disorders <b>rarely occur alone</b> — comorbidity with other anxiety disorders is very common.',
+    'There is especially large overlap with <b>depression</b> and with <b>substance use</b> (often self-medication).',
+    'Anxiety disorders frequently <b>precede depression</b>, suggesting anxiety can be a developmental risk factor for later mood problems.',
+    'A person can meet criteria for <b>several anxiety diagnoses at once</b> (e.g. panic disorder + agoraphobia + SAD).',
+    'Comorbidity predicts <b>greater severity, more impairment and poorer prognosis</b>, and complicates treatment.'
+  ],
+  hook:'Anxiety disorders are <b>social</b> — they bring friends. Expect depression, substance use, and other anxieties at the same table.'
+});
+/* ===== SECTION 4 — PREVALENCE ===== */
+LESSONS.push({
+  id:'prevalence', cat:'Prevalence',
+  title:'How Common Are Anxiety Disorders?',
+  blurb:'Anxiety disorders are the most common class of mental disorder — here are the headline numbers.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Lifetime prevalence (approximate)</text>
+    <text x="300" y="52" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">Anxiety disorders are the MOST common category of mental disorder</text>
+    <!-- bars -->
+    <g font-family="DM Sans">
+      <text x="170" y="92" text-anchor="end" font-size="12" font-weight="700" fill="#43404e">Any anxiety disorder</text>
+      <rect x="180" y="78" width="340" height="22" rx="6" fill="#c9a96e"/>
+      <text x="528" y="95" font-size="11" font-weight="700" fill="#a8884e">~29%</text>
+
+      <text x="170" y="128" text-anchor="end" font-size="12" font-weight="700" fill="#43404e">Specific phobia</text>
+      <rect x="180" y="114" width="150" height="22" rx="6" fill="#7d9b76"/>
+      <text x="338" y="131" font-size="11" font-weight="700" fill="#5f7d59">~12%</text>
+
+      <text x="170" y="164" text-anchor="end" font-size="12" font-weight="700" fill="#43404e">Social anxiety disorder</text>
+      <rect x="180" y="150" width="150" height="22" rx="6" fill="#7d9b76"/>
+      <text x="338" y="167" font-size="11" font-weight="700" fill="#5f7d59">~12%</text>
+
+      <text x="170" y="200" text-anchor="end" font-size="12" font-weight="700" fill="#43404e">Panic disorder</text>
+      <rect x="180" y="186" width="60" height="22" rx="6" fill="#6f8fae"/>
+      <text x="248" y="203" font-size="11" font-weight="700" fill="#4f7193">~5%</text>
+
+      <text x="170" y="236" text-anchor="end" font-size="12" font-weight="700" fill="#43404e">Agoraphobia</text>
+      <rect x="180" y="222" width="25" height="22" rx="6" fill="#6f8fae"/>
+      <text x="213" y="239" font-size="11" font-weight="700" fill="#4f7193">~1-2%</text>
+    </g>
+    <line x1="180" y1="256" x2="180" y2="70" stroke="#9a93a3" stroke-width="1"/>
+    <rect x="60" y="280" width="480" height="60" rx="12" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.4"/>
+    <text x="300" y="304" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#a8884e">Specific phobia &amp; SAD are the two MOST common</text>
+    <text x="300" y="324" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">around 1 in 4 people will meet criteria for an anxiety disorder in their lifetime</text>
+    <text x="300" y="372" text-anchor="middle" font-family="DM Sans" font-size="11" font-style="italic" fill="#65616e">Exact figures vary by study &amp; country; learn the rank ORDER, not just numbers</text>
+    <text x="300" y="396" text-anchor="middle" font-family="DM Sans" font-size="11" font-style="italic" fill="#65616e">phobia &#8776; social &gt; panic &gt; agoraphobia</text>
+  </svg>`,
+  points:[
+    'Anxiety disorders are the <b>most common class of mental disorder</b> — roughly <b>1 in 4 (~29%)</b> people meet criteria in their lifetime.',
+    '<b>Specific phobia (~12%)</b> and <b>social anxiety disorder (~12%)</b> are the two most common individual disorders.',
+    '<b>Panic disorder</b> is less common (~5% lifetime) and <b>agoraphobia</b> rarer still (~1–2%).',
+    'Exact figures vary across studies and countries, so focus on the <b>rank order</b>: phobia ≈ social > panic > agoraphobia.',
+    '12-month prevalence is lower than lifetime, but anxiety still tops the league table of mental disorders.'
+  ],
+  hook:'Learn the <b>order, not the decimals</b>: phobia and social tie at the top, then panic, then agoraphobia at the bottom.'
+});
+LESSONS.push({
+  id:'sex-onset', cat:'Prevalence',
+  title:'Sex Differences & Age of Onset',
+  blurb:'Who develops anxiety, and when — two patterns that show up across almost every disorder.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Two robust patterns</text>
+    <!-- sex -->
+    <rect x="36" y="50" width="528" height="120" rx="13" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.5"/>
+    <text x="300" y="76" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="700" fill="#a8884e">SEX DIFFERENCE</text>
+    <text x="160" y="108" text-anchor="middle" font-family="Cormorant Garamond" font-size="40" font-weight="700" fill="#c9a96e">2 : 1</text>
+    <text x="160" y="134" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">women : men</text>
+    <text x="160" y="152" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">for most anxiety disorders</text>
+    <text x="410" y="100" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#43404e">Women are roughly twice as</text>
+    <text x="410" y="118" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#43404e">likely to be diagnosed —</text>
+    <text x="410" y="136" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#43404e">true for phobia, panic,</text>
+    <text x="410" y="154" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#43404e">agoraphobia &amp; SAD</text>
+    <!-- onset timeline -->
+    <text x="300" y="200" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="700" fill="#4f7193">AGE OF ONSET — typically EARLY</text>
+    <line x1="60" y1="260" x2="540" y2="260" stroke="#9a93a3" stroke-width="2"/>
+    <g font-family="DM Sans" font-size="10.5">
+      <circle cx="120" cy="260" r="6" fill="#7d9b76"/><text x="120" y="240" text-anchor="middle" font-weight="700" fill="#5f7d59">Specific phobia</text><text x="120" y="284" text-anchor="middle" fill="#65616e">childhood</text>
+      <circle cx="250" cy="260" r="6" fill="#6f8fae"/><text x="250" y="240" text-anchor="middle" font-weight="700" fill="#4f7193">Social anxiety</text><text x="250" y="284" text-anchor="middle" fill="#65616e">adolescence</text>
+      <circle cx="400" cy="260" r="6" fill="#c9a96e"/><text x="400" y="240" text-anchor="middle" font-weight="700" fill="#a8884e">Panic / agoraphobia</text><text x="400" y="284" text-anchor="middle" fill="#65616e">late teens–20s</text>
+      <text x="60" y="306" font-size="10" fill="#9a93a3">birth</text>
+      <text x="540" y="306" text-anchor="end" font-size="10" fill="#9a93a3">adulthood</text>
+    </g>
+    <rect x="60" y="330" width="480" height="66" rx="13" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+    <text x="300" y="356" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#5f7d59">Phobia is earliest, panic disorder latest</text>
+    <text x="300" y="377" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">untreated, anxiety disorders tend to follow a chronic, fluctuating course</text>
+  </svg>`,
+  points:[
+    'Across almost all anxiety disorders, <b>women are about twice as likely</b> as men to be affected (~2:1).',
+    'Anxiety disorders have an <b>early age of onset</b> compared with most other mental disorders.',
+    '<b>Specific phobias</b> begin earliest, often in <b>childhood</b>; <b>social anxiety</b> typically emerges in <b>adolescence</b>.',
+    '<b>Panic disorder and agoraphobia</b> tend to onset latest — in the <b>late teens to twenties</b>.',
+    'Left untreated, anxiety disorders usually run a <b>chronic, fluctuating course</b> rather than resolving on their own.'
+  ],
+  hook:'Two rules: <b>women ~2× men</b>, and onset runs <b>phobia (child) → social (teen) → panic (20s)</b> — youngest fear first.'
+});
+/* ===== SECTION 5 — AETIOLOGY / THEORIES ===== */
+LESSONS.push({
+  id:'classical-conditioning', cat:'Aetiology',
+  title:'Classical Conditioning & Little Albert',
+  blurb:'The original behavioural account: phobias are learned by association — proven on an 11-month-old.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">How a fear is learned (Watson &amp; Rayner, 1920)</text>
+    <!-- before -->
+    <text x="80" y="68" font-family="DM Sans" font-size="12" font-weight="700" fill="#5f7d59">BEFORE</text>
+    <rect x="60" y="78" width="150" height="48" rx="10" fill="#e8efe4" stroke="#7d9b76"/>
+    <text x="135" y="100" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#5f7d59">White rat (NS)</text>
+    <text x="135" y="117" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">no fear</text>
+    <text x="245" y="106" font-size="20" fill="#9a93a3">+</text>
+    <rect x="280" y="78" width="160" height="48" rx="10" fill="#fbeae7" stroke="#cf6b5e"/>
+    <text x="360" y="100" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8443a">Loud clang (UCS)</text>
+    <text x="360" y="117" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">&#8594; fear (UCR)</text>
+    <!-- pairing arrow -->
+    <path d="M300,134 L300,158" stroke="#9a93a3" stroke-width="1.8" marker-end="url(#arrCC)"/>
+    <defs><marker id="arrCC" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#9a93a3"/></marker></defs>
+    <text x="430" y="150" font-family="DM Sans" font-size="11" font-style="italic" fill="#65616e">repeated pairing</text>
+    <!-- after -->
+    <text x="80" y="186" font-family="DM Sans" font-size="12" font-weight="700" fill="#a8884e">AFTER</text>
+    <rect x="150" y="196" width="180" height="52" rx="10" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.6"/>
+    <text x="240" y="220" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8884e">White rat (now CS)</text>
+    <text x="240" y="238" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">presented alone</text>
+    <path d="M330,222 L370,222" stroke="#c9a96e" stroke-width="1.8" marker-end="url(#arrCC2)"/>
+    <defs><marker id="arrCC2" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#c9a96e"/></marker></defs>
+    <rect x="378" y="196" width="170" height="52" rx="10" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.6"/>
+    <text x="463" y="220" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8443a">Fear (now CR)</text>
+    <text x="463" y="238" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">crying, avoidance</text>
+    <!-- generalisation -->
+    <rect x="60" y="270" width="480" height="58" rx="12" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.4"/>
+    <text x="300" y="294" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#4f7193">STIMULUS GENERALISATION</text>
+    <text x="300" y="314" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">Albert\u2019s fear spread to rabbits, dogs, fur coats &amp; a Santa mask</text>
+    <rect x="60" y="344" width="480" height="62" rx="13" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+    <text x="300" y="368" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#5f7d59">Limit: most phobics can\u2019t recall a conditioning event</text>
+    <text x="300" y="389" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">so conditioning alone cannot explain every phobia</text>
+  </svg>`,
+  points:[
+    'Classical conditioning explains phobia as <b>learning by association</b>: a neutral stimulus is paired with something that already causes fear.',
+    'In <b>Watson & Rayner\u2019s "Little Albert" (1920)</b>, a white rat (NS) was paired with a loud clang (UCS) until the rat alone (CS) produced fear (CR).',
+    'Through <b>stimulus generalisation</b>, Albert\u2019s fear spread to other furry things — rabbits, dogs, fur coats.',
+    'This shows phobias can be <b>acquired through direct experience</b> — and need not be "rational".',
+    'A key limitation: <b>most phobic patients cannot recall any conditioning event</b>, so conditioning alone is incomplete.'
+  ],
+  hook:'Little Albert: rat + bang → fear of rat → fear of everything fluffy. <b>Pair a neutral thing with terror and it inherits the terror.</b>'
+});
+LESSONS.push({
+  id:'two-factor', cat:'Aetiology',
+  title:'Mowrer\u2019s Two-Factor Model',
+  blurb:'The classic account of why phobias persist: one kind of learning starts them, another keeps them alive.',
+  svg:`<svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Two-Factor Theory (Mowrer)</text>
+    <!-- factor 1 -->
+    <rect x="40" y="52" width="520" height="92" rx="13" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.6"/>
+    <text x="64" y="78" font-family="DM Sans" font-size="13" font-weight="700" fill="#4f7193">FACTOR 1 · Classical conditioning</text>
+    <text x="64" y="100" font-family="DM Sans" font-size="11.5" fill="#43404e">The fear is ACQUIRED — a stimulus becomes associated with fear</text>
+    <text x="64" y="122" font-family="DM Sans" font-size="11" font-style="italic" fill="#65616e">"I was bitten by a dog &#8594; dogs now trigger fear"</text>
+    <text x="300" y="160" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#9a93a3">but why doesn\u2019t the fear just fade?</text>
+    <path d="M300,166 L300,184" stroke="#9a93a3" stroke-width="1.8" marker-end="url(#arrTF)"/>
+    <defs><marker id="arrTF" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#9a93a3"/></marker></defs>
+    <!-- factor 2 -->
+    <rect x="40" y="188" width="520" height="100" rx="13" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.6"/>
+    <text x="64" y="214" font-family="DM Sans" font-size="13" font-weight="700" fill="#a8443a">FACTOR 2 · Operant conditioning</text>
+    <text x="64" y="236" font-family="DM Sans" font-size="11.5" fill="#43404e">The fear is MAINTAINED by avoidance</text>
+    <text x="64" y="258" font-family="DM Sans" font-size="11" fill="#65616e">avoiding the feared thing &#8594; instant relief &#8594; relief is rewarding</text>
+    <text x="64" y="278" font-family="DM Sans" font-size="11" font-weight="700" fill="#a8443a">&#8594; negative reinforcement strengthens avoidance</text>
+    <!-- vicious loop -->
+    <rect x="120" y="306" width="360" height="62" rx="13" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.6"/>
+    <text x="300" y="330" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#a8884e">The trap: avoidance blocks new learning</text>
+    <text x="300" y="350" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">the person never discovers the feared thing is safe</text>
+    <text x="300" y="396" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-style="italic" fill="#5f7d59">This is why EXPOSURE (no avoidance) is the cure</text>
+  </svg>`,
+  points:[
+    'The two-factor model says <b>two different kinds of learning</b> are needed to explain a phobia.',
+    '<b>Factor 1 — classical conditioning</b>: the fear is <b>acquired</b> by associating a stimulus with a frightening experience.',
+    '<b>Factor 2 — operant conditioning</b>: the fear is <b>maintained</b> because avoidance brings instant relief.',
+    'That relief is a <b>negative reinforcer</b> — it rewards and strengthens avoidance, so the fear never extinguishes.',
+    'Because avoidance <b>blocks new learning</b>, the person never discovers the feared thing is safe — which is exactly why <b>exposure</b> works.'
+  ],
+  hook:'<b>Factor 1 plants the fear, Factor 2 waters it.</b> Avoidance feels good now but guarantees the fear survives.'
+});
+LESSONS.push({
+  id:'preparedness', cat:'Aetiology',
+  title:'Biological Preparedness (Seligman)',
+  blurb:'Why we so easily fear snakes and spiders but almost never plug sockets or cars.',
+  svg:`<svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Preparedness Theory (Seligman, 1971)</text>
+    <text x="300" y="54" text-anchor="middle" font-family="DM Sans" font-size="11.5" fill="#65616e">We are evolutionarily "prepared" to fear ancient dangers</text>
+    <!-- two columns -->
+    <rect x="40" y="74" width="252" height="240" rx="14" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.6"/>
+    <text x="166" y="100" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="700" fill="#5f7d59">PREPARED fears</text>
+    <text x="166" y="118" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">easily learned, hard to lose</text>
+    <g font-family="DM Sans" font-size="12" fill="#43404e">
+      <text x="166" y="150" text-anchor="middle">&#128375; spiders &#183; &#129422; snakes</text>
+      <text x="166" y="180" text-anchor="middle">heights &#183; deep water</text>
+      <text x="166" y="210" text-anchor="middle">storms &#183; the dark</text>
+      <text x="166" y="240" text-anchor="middle">strangers &#183; blood</text>
+    </g>
+    <text x="166" y="278" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-style="italic" fill="#5f7d59">threatened ancestral</text>
+    <text x="166" y="294" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-style="italic" fill="#5f7d59">survival</text>
+
+    <rect x="308" y="74" width="252" height="240" rx="14" fill="#f3ecf3" stroke="#9a93a3" stroke-width="1.4"/>
+    <text x="434" y="100" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="700" fill="#65616e">UNPREPARED fears</text>
+    <text x="434" y="118" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#9a93a3">rare, despite real danger</text>
+    <g font-family="DM Sans" font-size="12" fill="#43404e">
+      <text x="434" y="150" text-anchor="middle">&#128268; electrical sockets</text>
+      <text x="434" y="180" text-anchor="middle">&#128663; cars &#183; guns</text>
+      <text x="434" y="210" text-anchor="middle">knives &#183; cigarettes</text>
+      <text x="434" y="240" text-anchor="middle">fast food</text>
+    </g>
+    <text x="434" y="278" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-style="italic" fill="#65616e">modern, but no</text>
+    <text x="434" y="294" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-style="italic" fill="#65616e">evolutionary history</text>
+    <rect x="60" y="332" width="480" height="64" rx="13" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.4"/>
+    <text x="300" y="358" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8884e">Cars kill far more people than spiders — yet spider phobia is far more common</text>
+    <text x="300" y="380" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">Fear distribution tracks ancestral danger, NOT modern danger</text>
+  </svg>`,
+  points:[
+    'Preparedness theory says evolution has <b>biologically prepared us</b> to fear stimuli that threatened ancestral survival.',
+    '<b>Prepared fears</b> — snakes, spiders, heights, water, the dark — are <b>acquired quickly and extinguished slowly</b>.',
+    '<b>Unprepared</b> modern dangers — sockets, cars, guns — are <b>rarely</b> the focus of phobias despite being far deadlier.',
+    'This explains the <b>non-random distribution</b> of phobias: fear tracks ancestral, not actual, danger.',
+    'It complements conditioning theory by explaining <b>what</b> we are predisposed to learn to fear.'
+  ],
+  hook:'We\u2019re wired by the <b>Stone Age, not the modern age</b>: terrified of spiders, casual about cars — even though cars are deadlier.'
+});
+LESSONS.push({
+  id:'disgust', cat:'Aetiology',
+  title:'Disgust Sensitivity',
+  blurb:'Some phobias are driven not by fear of harm but by revulsion — a disease-avoidance emotion.',
+  svg:`<svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Disgust, not just fear, drives some phobias</text>
+    <!-- emotion split -->
+    <rect x="60" y="56" width="220" height="56" rx="12" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.4"/>
+    <text x="170" y="80" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#a8443a">FEAR</text>
+    <text x="170" y="100" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">"this could harm me"</text>
+    <rect x="320" y="56" width="220" height="56" rx="12" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.6"/>
+    <text x="430" y="80" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#5f7d59">DISGUST</text>
+    <text x="430" y="100" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">"this could contaminate me"</text>
+    <text x="300" y="142" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#5f7d59">Disgust = a disease-avoidance emotion</text>
+    <!-- examples -->
+    <rect x="60" y="160" width="480" height="120" rx="13" fill="#fdfbfd" stroke="#cdddc4" stroke-width="1.4"/>
+    <text x="300" y="186" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#5f7d59">High disgust-sensitivity predicts:</text>
+    <g font-family="DM Sans" font-size="11.5" fill="#43404e">
+      <text x="300" y="214" text-anchor="middle">&#128375; small-animal phobias (spiders, slugs, maggots, rats)</text>
+      <text x="300" y="240" text-anchor="middle">&#129656; blood-injection-injury phobia</text>
+      <text x="300" y="266" text-anchor="middle">contamination fears (linked to OCD)</text>
+    </g>
+    <rect x="60" y="300" width="480" height="96" rx="13" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.4"/>
+    <text x="300" y="326" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8884e">These animals aren\u2019t dangerous — they\u2019re REVOLTING</text>
+    <text x="300" y="348" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">a slug can\u2019t hurt you, yet many people recoil</text>
+    <text x="300" y="372" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">disgust may have evolved to keep us away from sources of infection</text>
+  </svg>`,
+  points:[
+    'Not all phobias are about fear of harm — some are driven by <b>disgust</b>, a distinct, disease-avoidance emotion.',
+    'Disgust says "<b>this could contaminate me</b>", whereas fear says "this could harm me".',
+    'High <b>disgust sensitivity</b> predicts <b>small-animal phobias</b> (spiders, slugs, maggots) and <b>blood-injection-injury phobia</b>.',
+    'Many feared animals are <b>harmless but revolting</b> — a slug can\u2019t hurt you, yet it triggers recoil.',
+    'Disgust likely evolved to keep us away from <b>sources of infection and disease</b>.'
+  ],
+  hook:'Ask "<b>would it hurt me, or gross me out?</b>" For spiders, maggots and BII phobia the answer is often disgust, not danger.'
+});
+LESSONS.push({
+  id:'genetics-temperament', cat:'Aetiology',
+  title:'Genetics & Behavioural Inhibition',
+  blurb:'The biological starting line: inherited vulnerability and an anxious temperament present in infancy.',
+  svg:`<svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Inherited vulnerability &amp; temperament</text>
+    <!-- genes -->
+    <rect x="40" y="54" width="252" height="120" rx="13" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.5"/>
+    <text x="166" y="80" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="700" fill="#4f7193">GENETICS</text>
+    <text x="166" y="106" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#43404e">Anxiety disorders run</text>
+    <text x="166" y="124" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#43404e">in families; twin studies</text>
+    <text x="166" y="142" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#43404e">show moderate heritability</text>
+    <text x="166" y="162" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-style="italic" fill="#65616e">~30-40%</text>
+    <!-- temperament -->
+    <rect x="308" y="54" width="252" height="120" rx="13" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.5"/>
+    <text x="434" y="80" text-anchor="middle" font-family="DM Sans" font-size="13" font-weight="700" fill="#a8884e">TEMPERAMENT</text>
+    <text x="434" y="106" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#43404e">Behavioural inhibition (Kagan):</text>
+    <text x="434" y="124" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#43404e">shy, fearful, withdrawn</text>
+    <text x="434" y="142" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#43404e">response to novelty in</text>
+    <text x="434" y="160" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#a8884e">infancy</text>
+    <!-- arrow down -->
+    <path d="M300,178 L300,200" stroke="#9a93a3" stroke-width="1.8" marker-end="url(#arrGT)"/>
+    <defs><marker id="arrGT" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#9a93a3"/></marker></defs>
+    <rect x="120" y="204" width="360" height="56" rx="12" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+    <text x="300" y="228" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#5f7d59">Behaviourally inhibited infants are at higher risk</text>
+    <text x="300" y="248" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">of later social anxiety &amp; other anxiety disorders</text>
+    <!-- diathesis stress -->
+    <rect x="60" y="280" width="480" height="116" rx="13" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.4"/>
+    <text x="300" y="306" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#4f7193">DIATHESIS-STRESS</text>
+    <text x="300" y="332" text-anchor="middle" font-family="DM Sans" font-size="11.5" fill="#43404e">Genes/temperament = the vulnerability (diathesis)</text>
+    <text x="300" y="354" text-anchor="middle" font-family="DM Sans" font-size="11.5" fill="#43404e">Life stress / learning experiences = the trigger</text>
+    <text x="300" y="380" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#a8884e">Nature LOADS the gun; environment PULLS the trigger</text>
+  </svg>`,
+  points:[
+    'Anxiety disorders <b>run in families</b>; twin studies show <b>moderate heritability</b> (roughly 30–40%).',
+    'What is inherited is a <b>general vulnerability to anxiety</b>, not a specific phobia.',
+    '<b>Behavioural inhibition</b> (Kagan) — a shy, fearful, withdrawn response to novelty seen in <b>infancy</b> — is a key temperamental risk factor.',
+    'Behaviourally inhibited infants are at <b>higher risk of later social anxiety</b> and other anxiety disorders.',
+    'This fits a <b>diathesis-stress</b> model: inherited vulnerability + environmental stress/learning together produce the disorder.'
+  ],
+  hook:'<b>Nature loads the gun; environment pulls the trigger.</b> Genes and an inhibited temperament set the stage, life events do the rest.'
+});
+/* ===== SECTION 6 — COGNITIVE THEORIES & KEY BRAIN AREAS ===== */
+LESSONS.push({
+  id:'panic-circle', cat:'Cognitive & Brain',
+  title:'Clark\u2019s Cognitive Model of Panic',
+  blurb:'The famous "vicious circle" — how a harmless body sensation snowballs into a full panic attack.',
+  svg:`<svg viewBox="0 0 600 460" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="28" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">The Panic Cycle (Clark, 1986)</text>
+    <defs><marker id="arrPC" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#4f7193"/></marker></defs>
+    <!-- node 1: trigger -->
+    <rect x="210" y="46" width="180" height="50" rx="12" fill="#f3ecf3" stroke="#9a93a3" stroke-width="1.4"/>
+    <text x="300" y="68" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#65616e">Trigger (internal/external)</text>
+    <text x="300" y="85" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">e.g. caffeine, stress, a thought</text>
+    <!-- node 2: body sensation -->
+    <rect x="400" y="150" width="170" height="58" rx="12" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.5"/>
+    <text x="485" y="174" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8443a">Body sensations</text>
+    <text x="485" y="192" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">racing heart, dizziness</text>
+    <!-- node 3: catastrophic -->
+    <rect x="205" y="270" width="190" height="62" rx="12" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.8"/>
+    <text x="300" y="293" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8884e">CATASTROPHIC</text>
+    <text x="300" y="309" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8884e">MISINTERPRETATION</text>
+    <text x="300" y="325" text-anchor="middle" font-family="DM Sans" font-size="9.5" fill="#65616e">"I\u2019m having a heart attack!"</text>
+    <!-- node 4: apprehension -->
+    <rect x="30" y="150" width="170" height="58" rx="12" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.5"/>
+    <text x="115" y="174" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#4f7193">Apprehension</text>
+    <text x="115" y="192" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">fear escalates sharply</text>
+    <!-- circular arrows -->
+    <path d="M390,80 Q470,100 480,148" fill="none" stroke="#4f7193" stroke-width="2" marker-end="url(#arrPC)"/>
+    <path d="M470,208 Q430,250 393,278" fill="none" stroke="#4f7193" stroke-width="2" marker-end="url(#arrPC)"/>
+    <path d="M205,288 Q140,250 120,210" fill="none" stroke="#4f7193" stroke-width="2" marker-end="url(#arrPC)"/>
+    <path d="M120,150 Q150,105 245,92" fill="none" stroke="#4f7193" stroke-width="2" marker-end="url(#arrPC)"/>
+    <text x="300" y="225" text-anchor="middle" font-family="Cormorant Garamond" font-size="20" font-weight="700" fill="#a8884e">VICIOUS</text>
+    <text x="300" y="248" text-anchor="middle" font-family="Cormorant Garamond" font-size="20" font-weight="700" fill="#a8884e">CIRCLE</text>
+    <!-- bottom note -->
+    <rect x="60" y="356" width="480" height="92" rx="13" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+    <text x="300" y="380" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#5f7d59">The misinterpretation creates MORE sensations &#8594; the loop spins faster</text>
+    <text x="300" y="402" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">Apprehension itself produces more arousal, "proving" the catastrophe is real</text>
+    <text x="300" y="426" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#a8884e">Break the loop by changing the INTERPRETATION (CBT)</text>
+  </svg>`,
+  points:[
+    'Clark\u2019s model explains panic disorder as a <b>vicious circle of catastrophic misinterpretation</b>.',
+    'A <b>trigger</b> produces normal <b>body sensations</b> (racing heart, dizziness) — often from caffeine, exercise, or stress.',
+    'The person <b>catastrophically misinterprets</b> these sensations as signs of imminent disaster ("<b>I\u2019m having a heart attack / going crazy</b>").',
+    'This interpretation spikes <b>apprehension</b>, which produces <b>even more</b> arousal and sensations — the loop accelerates into a full attack.',
+    'The clinical implication: panic is broken by <b>changing the interpretation</b>, the core target of CBT for panic.'
+  ],
+  hook:'Panic is a <b>feedback loop</b>: sensation → "I\u2019m dying!" → more sensation. The body isn\u2019t failing — the interpretation is.'
+});
+LESSONS.push({
+  id:'anxiety-sensitivity', cat:'Cognitive & Brain',
+  title:'Anxiety Sensitivity & Interoception',
+  blurb:'Why some people are primed for panic: they fear the very feeling of arousal itself.',
+  svg:`<svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Anxiety Sensitivity: "fear of fear"</text>
+    <rect x="90" y="52" width="420" height="56" rx="12" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.5"/>
+    <text x="300" y="76" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#4f7193">Belief that anxiety sensations are HARMFUL</text>
+    <text x="300" y="96" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">"a racing heart means something is medically wrong"</text>
+    <!-- two people compare -->
+    <rect x="40" y="130" width="252" height="120" rx="13" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+    <text x="166" y="156" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#5f7d59">LOW sensitivity</text>
+    <text x="166" y="182" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#43404e">heart races after coffee</text>
+    <text x="166" y="202" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#43404e">&#8594; "just the caffeine"</text>
+    <text x="166" y="228" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-weight="700" fill="#5f7d59">no alarm, no spiral</text>
+    <rect x="308" y="130" width="252" height="120" rx="13" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.6"/>
+    <text x="434" y="156" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#a8443a">HIGH sensitivity</text>
+    <text x="434" y="182" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#43404e">heart races after coffee</text>
+    <text x="434" y="202" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#43404e">&#8594; "I\u2019m going to collapse!"</text>
+    <text x="434" y="228" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-weight="700" fill="#a8443a">triggers the panic cycle</text>
+    <rect x="60" y="272" width="480" height="58" rx="12" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.4"/>
+    <text x="300" y="296" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8884e">INTEROCEPTION = sensing internal body signals</text>
+    <text x="300" y="316" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">panic-prone people are hyper-attuned to tiny internal changes</text>
+    <text x="300" y="360" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">High anxiety sensitivity prospectively PREDICTS who develops panic disorder</text>
+    <text x="300" y="386" text-anchor="middle" font-family="DM Sans" font-size="11" font-style="italic" fill="#5f7d59">Treatment uses interoceptive exposure: deliberately provoke the sensations</text>
+  </svg>`,
+  points:[
+    '<b>Anxiety sensitivity</b> is the belief that anxiety-related sensations are <b>dangerous or harmful</b> — essentially a trait-like "fear of fear".',
+    'Two people can feel the same racing heart: low-sensitivity says "just caffeine"; <b>high-sensitivity</b> says "I\u2019m going to collapse" — and spirals.',
+    '<b>Interoception</b> (sensing internal body signals) is heightened in panic-prone people — they notice tiny internal changes.',
+    'High anxiety sensitivity <b>prospectively predicts</b> who will develop panic disorder.',
+    'Treatment uses <b>interoceptive exposure</b> — deliberately inducing the sensations (e.g. hyperventilating, spinning) to break the fear.'
+  ],
+  hook:'Anxiety sensitivity is being scared of your <b>own heartbeat</b>. The trigger isn\u2019t out there — it\u2019s the feeling of arousal itself.'
+});
+LESSONS.push({
+  id:'social-model', cat:'Cognitive & Brain',
+  title:'The Clark & Wells Social Anxiety Model',
+  blurb:'How attention turns inward in social situations, building a distorted image that confirms the fear.',
+  svg:`<svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="28" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Clark &amp; Wells (1995) — maintenance of SAD</text>
+    <rect x="180" y="44" width="240" height="44" rx="11" fill="#f3ecf3" stroke="#9a93a3" stroke-width="1.3"/>
+    <text x="300" y="70" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#65616e">Social situation perceived as dangerous</text>
+    <path d="M300,88 L300,104" stroke="#9a93a3" stroke-width="1.6" marker-end="url(#arrSM)"/>
+    <defs><marker id="arrSM" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#6f8fae"/></marker></defs>
+    <rect x="170" y="106" width="260" height="44" rx="11" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.6"/>
+    <text x="300" y="132" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#4f7193">Shift to SELF-FOCUSED attention</text>
+    <!-- three maintaining factors -->
+    <g font-family="DM Sans">
+      <rect x="30" y="172" width="172" height="92" rx="12" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.4"/>
+      <text x="116" y="196" text-anchor="middle" font-size="11.5" font-weight="700" fill="#a8443a">Distorted self-image</text>
+      <text x="116" y="218" text-anchor="middle" font-size="10" fill="#65616e">uses internal feelings</text>
+      <text x="116" y="233" text-anchor="middle" font-size="10" fill="#65616e">to imagine how they</text>
+      <text x="116" y="248" text-anchor="middle" font-size="10" fill="#65616e">"must look" to others</text>
+
+      <rect x="214" y="172" width="172" height="92" rx="12" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.4"/>
+      <text x="300" y="196" text-anchor="middle" font-size="11.5" font-weight="700" fill="#a8443a">Safety behaviours</text>
+      <text x="300" y="218" text-anchor="middle" font-size="10" fill="#65616e">avoid eye contact,</text>
+      <text x="300" y="233" text-anchor="middle" font-size="10" fill="#65616e">over-rehearse, grip cup</text>
+      <text x="300" y="248" text-anchor="middle" font-size="10" fill="#65616e">&#8594; prevent disconfirmation</text>
+
+      <rect x="398" y="172" width="172" height="92" rx="12" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.4"/>
+      <text x="484" y="196" text-anchor="middle" font-size="11.5" font-weight="700" fill="#a8443a">Anxiety symptoms</text>
+      <text x="484" y="218" text-anchor="middle" font-size="10" fill="#65616e">blushing, sweating,</text>
+      <text x="484" y="233" text-anchor="middle" font-size="10" fill="#65616e">trembling, mind going</text>
+      <text x="484" y="248" text-anchor="middle" font-size="10" fill="#65616e">blank — all noticed</text>
+    </g>
+    <path d="M300,150 L116,170" stroke="#cf6b5e" stroke-width="1.2"/>
+    <path d="M300,150 L300,170" stroke="#cf6b5e" stroke-width="1.2"/>
+    <path d="M300,150 L484,170" stroke="#cf6b5e" stroke-width="1.2"/>
+    <rect x="60" y="284" width="480" height="58" rx="12" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.4"/>
+    <text x="300" y="308" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8884e">POST-EVENT PROCESSING</text>
+    <text x="300" y="328" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">replaying the event afterwards, dwelling on perceived failures</text>
+    <rect x="60" y="352" width="480" height="62" rx="13" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+    <text x="300" y="376" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#5f7d59">The model is self-sustaining</text>
+    <text x="300" y="397" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">safety behaviours stop the person from ever learning the feared outcome won\u2019t happen</text>
+  </svg>`,
+  points:[
+    'When a social situation feels dangerous, the person shifts to <b>self-focused attention</b> instead of attending to the situation.',
+    'They build a <b>distorted self-image</b>, using internal feelings to infer how badly they "must look" to others.',
+    '<b>Safety behaviours</b> (avoiding eye contact, over-rehearsing, gripping objects) feel protective but <b>prevent disconfirmation</b> of the fear.',
+    'Self-focus makes them acutely aware of <b>anxiety symptoms</b> (blushing, trembling, blank mind), which seem to confirm the danger.',
+    'Afterwards, <b>post-event processing</b> replays and exaggerates "failures" — keeping the model self-sustaining over time.'
+  ],
+  hook:'In SAD you become your own <b>unreliable mirror</b>: you feel anxious, assume you look terrible, then "fix" it in ways that trap the fear.'
+});
+LESSONS.push({
+  id:'attentional-bias', cat:'Cognitive & Brain',
+  title:'Attentional Bias to Threat',
+  blurb:'Anxious minds are tuned like radar — they detect threat faster and struggle to look away.',
+  svg:`<svg viewBox="0 0 600 410" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">The anxious mind is biased toward threat</text>
+    <!-- radar metaphor -->
+    <circle cx="300" cy="150" r="76" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.6"/>
+    <circle cx="300" cy="150" r="50" fill="none" stroke="#b6cadb" stroke-width="1"/>
+    <circle cx="300" cy="150" r="25" fill="none" stroke="#b6cadb" stroke-width="1"/>
+    <line x1="300" y1="150" x2="358" y2="106" stroke="#4f7193" stroke-width="2"/>
+    <circle cx="345" cy="118" r="6" fill="#cf6b5e"/>
+    <text x="300" y="244" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#4f7193">threat is detected fast &amp; held in focus</text>
+    <!-- three components -->
+    <g font-family="DM Sans" font-size="10.5" fill="#43404e">
+      <rect x="36" y="262" width="170" height="74" rx="11" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.3"/>
+      <text x="121" y="285" text-anchor="middle" font-size="11.5" font-weight="700" fill="#4f7193">Faster detection</text>
+      <text x="121" y="306" text-anchor="middle">spots angry faces /</text>
+      <text x="121" y="321" text-anchor="middle">threat words quickly</text>
+      <rect x="215" y="262" width="170" height="74" rx="11" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.3"/>
+      <text x="300" y="285" text-anchor="middle" font-size="11.5" font-weight="700" fill="#4f7193">Difficulty disengaging</text>
+      <text x="300" y="306" text-anchor="middle">attention "sticks" to</text>
+      <text x="300" y="321" text-anchor="middle">the threat cue</text>
+      <rect x="394" y="262" width="170" height="74" rx="11" fill="#fdfbfd" stroke="#c6d6e3" stroke-width="1.3"/>
+      <text x="479" y="285" text-anchor="middle" font-size="11.5" font-weight="700" fill="#4f7193">Interpretation bias</text>
+      <text x="479" y="306" text-anchor="middle">ambiguous cues read</text>
+      <text x="479" y="321" text-anchor="middle">as threatening</text>
+    </g>
+    <text x="300" y="364" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8884e">Measured with the dot-probe &amp; emotional Stroop tasks</text>
+    <text x="300" y="388" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">These biases help MAINTAIN anxiety — a world that looks full of danger</text>
+  </svg>`,
+  points:[
+    'Anxious individuals show an <b>attentional bias toward threat</b> — they prioritise threatening information automatically.',
+    'They <b>detect threat faster</b> (e.g. angry faces, threat words) than non-anxious people.',
+    'They have <b>difficulty disengaging</b> — attention "sticks" to the threat cue once found.',
+    'An <b>interpretation bias</b> also operates: ambiguous situations are read as threatening rather than neutral.',
+    'These biases are measured with the <b>dot-probe and emotional Stroop tasks</b> and help <b>maintain</b> anxiety by making the world look dangerous.'
+  ],
+  hook:'Anxiety is a <b>threat radar stuck on high gain</b>: it pings danger fast, can\u2019t look away, and reads every shadow as a monster.'
+});
+LESSONS.push({
+  id:'safety-behaviors', cat:'Cognitive & Brain',
+  title:'Safety Behaviours & Threat Beliefs',
+  blurb:'Wong et al. (2023): the very actions meant to keep us safe are what keep our fears alive.',
+  svg:`<svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="28" text-anchor="middle" font-family="DM Sans" font-size="18" font-weight="700" fill="#43404e">Why safety behaviours backfire (Wong, 2023)</text>
+    <!-- definition -->
+    <rect x="60" y="44" width="480" height="46" rx="11" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.4"/>
+    <text x="300" y="66" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#4f7193">Safety behaviour = action to prevent a feared catastrophe</text>
+    <text x="300" y="83" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">carrying meds, gripping the rail, sitting near exits, over-preparing</text>
+    <!-- the trap loop -->
+    <defs><marker id="arrSB" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#cf6b5e"/></marker></defs>
+    <rect x="200" y="106" width="200" height="44" rx="11" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.4"/>
+    <text x="300" y="132" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#a8884e">Nothing bad happens</text>
+    <rect x="360" y="178" width="200" height="62" rx="11" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.4"/>
+    <text x="460" y="202" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-weight="700" fill="#a8443a">MISATTRIBUTION</text>
+    <text x="460" y="220" text-anchor="middle" font-family="DM Sans" font-size="9.5" fill="#65616e">"I only survived because</text>
+    <text x="460" y="234" text-anchor="middle" font-family="DM Sans" font-size="9.5" fill="#65616e">I did the safety behaviour"</text>
+    <rect x="200" y="268" width="200" height="44" rx="11" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.4"/>
+    <text x="300" y="288" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-weight="700" fill="#a8443a">Threat belief PRESERVED</text>
+    <text x="300" y="304" text-anchor="middle" font-family="DM Sans" font-size="9.5" fill="#65616e">"the situation really was dangerous"</text>
+    <rect x="40" y="178" width="200" height="62" rx="11" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.4"/>
+    <text x="140" y="202" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-weight="700" fill="#a8443a">No disconfirmation</text>
+    <text x="140" y="220" text-anchor="middle" font-family="DM Sans" font-size="9.5" fill="#65616e">never learns the feared</text>
+    <text x="140" y="234" text-anchor="middle" font-family="DM Sans" font-size="9.5" fill="#65616e">outcome wouldn\u2019t occur</text>
+    <path d="M380,128 Q455,140 460,176" fill="none" stroke="#cf6b5e" stroke-width="1.8" marker-end="url(#arrSB)"/>
+    <path d="M420,240 Q410,258 400,268" fill="none" stroke="#cf6b5e" stroke-width="1.8" marker-end="url(#arrSB)"/>
+    <path d="M200,290 Q120,270 140,242" fill="none" stroke="#cf6b5e" stroke-width="1.8" marker-end="url(#arrSB)"/>
+    <path d="M140,178 Q150,140 220,128" fill="none" stroke="#cf6b5e" stroke-width="1.8" marker-end="url(#arrSB)"/>
+    <rect x="60" y="334" width="480" height="92" rx="13" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.5"/>
+    <text x="300" y="358" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#5f7d59">Wong et al. (2023) key finding</text>
+    <text x="300" y="380" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">Using safety behaviours keeps maladaptive THREAT BELIEFS intact —</text>
+    <text x="300" y="398" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">people credit safety, not reality, for their survival (misattribution of safety)</text>
+    <text x="300" y="418" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-weight="700" fill="#5f7d59">&#8594; dropping safety behaviours is essential to effective exposure</text>
+  </svg>`,
+  points:[
+    'A <b>safety behaviour</b> is any action taken to prevent a feared catastrophe (carrying medication, gripping a rail, sitting near exits).',
+    'They give short-term relief but <b>backfire</b>: when nothing bad happens, the person <b>misattributes the safety</b> to their behaviour.',
+    'This <b>misattribution</b> means the catastrophe is never disconfirmed — "I only survived because I did X".',
+    'Wong et al. (2023) show this keeps maladaptive <b>threat beliefs intact</b> rather than letting them update.',
+    'The clinical implication is clear: <b>dropping safety behaviours is essential</b> for exposure therapy to actually work.'
+  ],
+  hook:'Safety behaviours are a <b>lucky charm</b>: when disaster doesn\u2019t strike, you thank the charm — so you never learn you never needed it.'
+});
+LESSONS.push({
+  id:'fear-circuit', cat:'Cognitive & Brain',
+  title:'Key Brain Areas: The Fear Circuit',
+  blurb:'The neural hardware of anxiety — the amygdala alarm, the cortical brake, and the body\u2019s stress axis.',
+  svg:`<svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="28" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">The Fear Circuit</text>
+    <!-- brain outline -->
+    <path d="M150,170 Q150,90 250,86 Q360,80 410,120 Q450,150 430,200 Q440,250 380,260 Q300,280 220,265 Q150,250 150,170 Z" fill="#f3ecf3" stroke="#9a93a3" stroke-width="1.6"/>
+    <!-- amygdala -->
+    <ellipse cx="300" cy="200" rx="34" ry="24" fill="#fbeae7" stroke="#cf6b5e" stroke-width="2"/>
+    <text x="300" y="198" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-weight="700" fill="#a8443a">Amygdala</text>
+    <text x="300" y="214" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#65616e">the alarm</text>
+    <!-- PFC -->
+    <ellipse cx="380" cy="135" rx="42" ry="26" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.8"/>
+    <text x="380" y="133" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700" fill="#4f7193">Prefrontal cortex</text>
+    <text x="380" y="148" text-anchor="middle" font-family="DM Sans" font-size="8.5" fill="#65616e">the brake</text>
+    <!-- hippocampus -->
+    <ellipse cx="225" cy="230" rx="36" ry="20" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.6"/>
+    <text x="225" y="228" text-anchor="middle" font-family="DM Sans" font-size="9.5" font-weight="700" fill="#5f7d59">Hippocampus</text>
+    <text x="225" y="242" text-anchor="middle" font-family="DM Sans" font-size="8" fill="#65616e">context/memory</text>
+    <line x1="346" y1="155" x2="320" y2="183" stroke="#6f8fae" stroke-width="1.6"/>
+    <text x="455" y="200" font-family="DM Sans" font-size="9" fill="#4f7193">weak brake &#8594;</text>
+    <text x="455" y="214" font-family="DM Sans" font-size="9" fill="#4f7193">unchecked alarm</text>
+    <!-- right side labels -->
+    <g font-family="DM Sans" font-size="10.5" fill="#43404e">
+      <rect x="40" y="290" width="248" height="60" rx="11" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.3"/>
+      <text x="164" y="312" text-anchor="middle" font-size="11.5" font-weight="700" fill="#a8443a">Amygdala</text>
+      <text x="164" y="332" text-anchor="middle">detects threat, triggers fear &amp;</text>
+      <text x="164" y="345" text-anchor="middle">the fight-or-flight response</text>
+      <rect x="312" y="290" width="248" height="60" rx="11" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.3"/>
+      <text x="436" y="312" text-anchor="middle" font-size="11.5" font-weight="700" fill="#4f7193">Prefrontal cortex</text>
+      <text x="436" y="332" text-anchor="middle">regulates / dampens the amygdala;</text>
+      <text x="436" y="345" text-anchor="middle">underactive in anxiety</text>
+    </g>
+    <rect x="40" y="360" width="520" height="64" rx="12" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.3"/>
+    <text x="300" y="382" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#a8884e">Locus coeruleus (noradrenaline) + HPA axis (cortisol) drive bodily arousal</text>
+    <text x="300" y="404" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">Neurotransmitters: low GABA &amp; serotonin function are linked to anxiety</text>
+  </svg>`,
+  points:[
+    'The <b>amygdala</b> is the brain\u2019s threat detector — it triggers fear and launches the fight-or-flight response; it is <b>hyperactive</b> in anxiety.',
+    'The <b>prefrontal cortex</b> acts as a <b>brake</b>, regulating and dampening the amygdala — it tends to be <b>underactive</b> in anxiety disorders.',
+    'The <b>hippocampus</b> supplies context and memory, helping judge whether a situation is genuinely safe.',
+    'The <b>locus coeruleus</b> (noradrenaline) and the <b>HPA axis</b> (cortisol) drive bodily arousal and the stress response.',
+    'At the chemical level, low <b>GABA</b> and altered <b>serotonin</b> function are implicated — the targets of anti-anxiety medication.'
+  ],
+  hook:'Think <b>alarm vs brake</b>: an over-eager amygdala (alarm) and a weak prefrontal cortex (brake) = fear that fires too easily.'
+});
+/* ===== SECTION 7 — EFFECTS OF THE DISORDER ===== */
+LESSONS.push({
+  id:'shrinking-world', cat:'Effects',
+  title:'The Shrinking World of Avoidance',
+  blurb:'How anxiety quietly narrows a life — each avoided situation makes the safe zone smaller.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Avoidance shrinks the "safe zone"</text>
+    <!-- concentric shrinking -->
+    <circle cx="180" cy="170" r="92" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4" opacity="0.5"/>
+    <circle cx="180" cy="170" r="62" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.4" opacity="0.7"/>
+    <circle cx="180" cy="170" r="32" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.6"/>
+    <text x="180" y="174" text-anchor="middle" font-family="DM Sans" font-size="10" font-weight="700" fill="#a8443a">home</text>
+    <text x="180" y="280" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#65616e">world keeps shrinking inward</text>
+    <path d="M250,110 L300,90" stroke="#9a93a3" stroke-width="1.4" marker-end="url(#arrSW)"/>
+    <defs><marker id="arrSW" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#9a93a3"/></marker></defs>
+    <!-- consequences -->
+    <g font-family="DM Sans" font-size="11" fill="#43404e">
+      <rect x="320" y="70" width="250" height="44" rx="10" fill="#fdfbfd" stroke="#c6d6e3"/>
+      <text x="340" y="90" font-weight="700" fill="#4f7193">Occupational</text>
+      <text x="340" y="107">missed work/school, underachievement</text>
+      <rect x="320" y="122" width="250" height="44" rx="10" fill="#fdfbfd" stroke="#c6d6e3"/>
+      <text x="340" y="142" font-weight="700" fill="#4f7193">Social &amp; relationships</text>
+      <text x="340" y="159">isolation, strained friendships</text>
+      <rect x="320" y="174" width="250" height="44" rx="10" fill="#fdfbfd" stroke="#c6d6e3"/>
+      <text x="340" y="194" font-weight="700" fill="#4f7193">Reliance on others</text>
+      <text x="340" y="211">needs companions; family accommodates</text>
+      <rect x="320" y="226" width="250" height="44" rx="10" fill="#fdfbfd" stroke="#c6d6e3"/>
+      <text x="340" y="246" font-weight="700" fill="#4f7193">Secondary problems</text>
+      <text x="340" y="263">depression, alcohol/substance use</text>
+    </g>
+    <rect x="40" y="300" width="520" height="58" rx="12" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.4"/>
+    <text x="300" y="324" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8884e">Avoidance brings relief NOW but costs the future</text>
+    <text x="300" y="344" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">each "no" makes the next "no" easier and the world a little smaller</text>
+    <text x="300" y="388" text-anchor="middle" font-family="DM Sans" font-size="11" font-style="italic" fill="#5f7d59">Significantly reduced quality of life is a core feature of anxiety disorders</text>
+  </svg>`,
+  points:[
+    'The core cost of anxiety is <b>avoidance</b>, which steadily <b>narrows the person\u2019s "safe zone"</b> until life centres on home.',
+    'It impairs <b>occupational</b> functioning — missed work or school and underachievement relative to ability.',
+    'It damages <b>social life and relationships</b>, producing isolation and reliance on companions ("safe people").',
+    'Families often <b>accommodate</b> the anxiety, which unintentionally reinforces avoidance.',
+    'Secondary problems — <b>depression and substance use</b> — commonly follow, and quality of life is significantly reduced.'
+  ],
+  hook:'Every avoidance is a small "no" to life. <b>The relief is instant; the world it leaves behind keeps shrinking.</b>'
+});
+
+/* ===== SECTION 8 — DEVELOPMENTAL COURSE ===== */
+LESSONS.push({
+  id:'course', cat:'Course',
+  title:'Developmental Course Across the Lifespan',
+  blurb:'When each disorder appears and how it unfolds — anxiety is usually a story that starts young.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">The lifespan of anxiety disorders</text>
+    <!-- timeline -->
+    <line x1="60" y1="120" x2="540" y2="120" stroke="#9a93a3" stroke-width="2.5"/>
+    <g font-family="DM Sans">
+      <circle cx="120" cy="120" r="7" fill="#7d9b76"/>
+      <rect x="62" y="138" width="120" height="68" rx="10" fill="#e8efe4" stroke="#7d9b76"/>
+      <text x="122" y="160" text-anchor="middle" font-size="11" font-weight="700" fill="#5f7d59">Childhood</text>
+      <text x="122" y="178" text-anchor="middle" font-size="9.5" fill="#65616e">specific phobias,</text>
+      <text x="122" y="192" text-anchor="middle" font-size="9.5" fill="#65616e">separation anxiety</text>
+
+      <circle cx="270" cy="120" r="7" fill="#6f8fae"/>
+      <rect x="210" y="138" width="120" height="68" rx="10" fill="#e6edf3" stroke="#6f8fae"/>
+      <text x="270" y="160" text-anchor="middle" font-size="11" font-weight="700" fill="#4f7193">Adolescence</text>
+      <text x="270" y="178" text-anchor="middle" font-size="9.5" fill="#65616e">social anxiety</text>
+      <text x="270" y="192" text-anchor="middle" font-size="9.5" fill="#65616e">disorder emerges</text>
+
+      <circle cx="420" cy="120" r="7" fill="#c9a96e"/>
+      <rect x="360" y="138" width="120" height="68" rx="10" fill="#f4eee1" stroke="#c9a96e"/>
+      <text x="420" y="160" text-anchor="middle" font-size="11" font-weight="700" fill="#a8884e">Late teens-20s</text>
+      <text x="420" y="178" text-anchor="middle" font-size="9.5" fill="#65616e">panic disorder &amp;</text>
+      <text x="420" y="192" text-anchor="middle" font-size="9.5" fill="#65616e">agoraphobia</text>
+
+      <circle cx="510" cy="120" r="7" fill="#9a93a3"/>
+      <text x="510" y="100" text-anchor="middle" font-size="10" fill="#65616e">adulthood</text>
+    </g>
+    <rect x="40" y="226" width="520" height="56" rx="12" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.4"/>
+    <text x="300" y="250" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8443a">Without treatment: chronic &amp; fluctuating</text>
+    <text x="300" y="270" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">symptoms wax and wane with stress; full spontaneous remission is uncommon</text>
+    <rect x="40" y="296" width="520" height="56" rx="12" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+    <text x="300" y="320" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#5f7d59">Early anxiety is a developmental risk factor</text>
+    <text x="300" y="340" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">childhood anxiety predicts later anxiety, depression &amp; substance use</text>
+    <text x="300" y="384" text-anchor="middle" font-family="DM Sans" font-size="11" font-style="italic" fill="#a8884e">Early identification &amp; treatment can change the trajectory</text>
+  </svg>`,
+  points:[
+    'Anxiety disorders typically <b>onset early</b> and follow a recognisable developmental sequence.',
+    '<b>Specific phobias and separation anxiety</b> appear first, in <b>childhood</b>; <b>social anxiety</b> emerges in <b>adolescence</b>.',
+    '<b>Panic disorder and agoraphobia</b> tend to begin <b>latest</b>, in the late teens to twenties.',
+    'Untreated, the course is usually <b>chronic and fluctuating</b> — symptoms wax and wane with stress, and full spontaneous remission is uncommon.',
+    'Early anxiety is a <b>developmental risk factor</b> for later anxiety, depression and substance use — so early treatment can change the trajectory.'
+  ],
+  hook:'Anxiety usually <b>starts young and stays</b>: phobia in childhood, social in the teens, panic in the twenties — and lingers unless treated.'
+});
+
+/* ===== SECTION 9 — TREATMENT & INTERVENTIONS ===== */
+LESSONS.push({
+  id:'exposure', cat:'Treatment',
+  title:'Exposure Therapy & Systematic Desensitisation',
+  blurb:'The gold-standard psychological treatment — facing the fear gradually until it loses its power.',
+  svg:`<svg viewBox="0 0 600 440" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="28" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Exposure: face it, don\u2019t flee it</text>
+    <!-- why it works -->
+    <rect x="40" y="44" width="520" height="44" rx="11" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+    <text x="300" y="64" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#5f7d59">Mechanism: EXTINCTION + new learning ("it\u2019s safe")</text>
+    <text x="300" y="81" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">staying in the situation lets anxiety fall on its own (habituation)</text>
+    <!-- habituation curve -->
+    <text x="300" y="108" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#4f7193">Anxiety falls if you STAY (habituation)</text>
+    <line x1="80" y1="200" x2="80" y2="118" stroke="#9a93a3" stroke-width="1.5"/>
+    <line x1="80" y1="200" x2="540" y2="200" stroke="#9a93a3" stroke-width="1.5"/>
+    <text x="60" y="160" text-anchor="middle" font-family="DM Sans" font-size="9" fill="#65616e" transform="rotate(-90 60 160)">anxiety</text>
+    <text x="540" y="216" text-anchor="end" font-family="DM Sans" font-size="9" fill="#65616e">time in situation</text>
+    <path d="M80,196 Q110,128 160,130 Q260,134 540,186" fill="none" stroke="#7d9b76" stroke-width="2.4"/>
+    <path d="M80,196 Q110,130 150,150 L150,196 Z" fill="none" stroke="#cf6b5e" stroke-width="1.4" stroke-dasharray="3 3"/>
+    <text x="200" y="125" font-family="DM Sans" font-size="9" fill="#a8443a">escape here &#8594; fear returns next time</text>
+    <!-- ladder -->
+    <text x="300" y="236" text-anchor="middle" font-family="DM Sans" font-size="12" font-weight="700" fill="#a8884e">Systematic desensitisation = a graded fear HIERARCHY</text>
+    <g font-family="DM Sans" font-size="10" fill="#43404e">
+      <rect x="120" y="248" width="360" height="22" rx="6" fill="#fbeae7" stroke="#cf6b5e"/><text x="130" y="263">Hold a spider (top — hardest)</text>
+      <rect x="150" y="276" width="300" height="22" rx="6" fill="#f4eee1" stroke="#c9a96e"/><text x="160" y="291">Let one walk on a table near you</text>
+      <rect x="180" y="304" width="240" height="22" rx="6" fill="#f4eee1" stroke="#c9a96e"/><text x="190" y="319">Stand near a jar with a spider</text>
+      <rect x="210" y="332" width="180" height="22" rx="6" fill="#e8efe4" stroke="#7d9b76"/><text x="220" y="347">Look at a photo of a spider</text>
+      <rect x="240" y="360" width="120" height="22" rx="6" fill="#e8efe4" stroke="#7d9b76"/><text x="250" y="375">Say the word "spider"</text>
+    </g>
+    <rect x="40" y="392" width="520" height="40" rx="11" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.3"/>
+    <text x="300" y="416" text-anchor="middle" font-family="DM Sans" font-size="10.5" fill="#43404e">Variants: in vivo · imaginal · VIRTUAL REALITY · flooding (full intensity at once)</text>
+  </svg>`,
+  points:[
+    'Exposure is the <b>gold-standard psychological treatment</b> for phobias and anxiety: facing the fear instead of avoiding it.',
+    'It works through <b>extinction and new learning</b> — staying in the situation lets anxiety fall by itself (<b>habituation</b>).',
+    '<b>Systematic desensitisation</b> climbs a graded <b>fear hierarchy</b>, from least to most frightening, often paired with relaxation.',
+    '<b>Escaping early</b> aborts the learning and brings the fear back — so the person must stay until anxiety drops.',
+    'Variants include <b>in vivo, imaginal, virtual-reality</b> exposure, and <b>flooding</b> (confronting the most feared stimulus at full intensity).'
+  ],
+  hook:'<b>The only way out is through.</b> Stay long enough and the alarm exhausts itself — escape too soon and it reloads for next time.'
+});
+LESSONS.push({
+  id:'applied-tension', cat:'Treatment',
+  title:'Applied Tension for BII Phobia',
+  blurb:'The exception to the rule — the one phobia where you tense up rather than relax.',
+  svg:`<svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Applied Tension (&Ouml;st) — for BII phobia</text>
+    <!-- problem -->
+    <rect x="60" y="50" width="480" height="50" rx="12" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.4"/>
+    <text x="300" y="72" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8443a">Problem: BII phobia causes blood pressure to DROP &#8594; fainting</text>
+    <text x="300" y="90" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">relaxation would make this WORSE — so the usual approach is reversed</text>
+    <path d="M300,100 L300,120" stroke="#9a93a3" stroke-width="1.6" marker-end="url(#arrAT)"/>
+    <defs><marker id="arrAT" markerWidth="9" markerHeight="9" refX="6" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#9a93a3"/></marker></defs>
+    <!-- technique -->
+    <rect x="60" y="124" width="480" height="120" rx="13" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.6"/>
+    <text x="300" y="148" text-anchor="middle" font-family="DM Sans" font-size="12.5" font-weight="700" fill="#5f7d59">The technique</text>
+    <text x="300" y="172" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#43404e">1 · Tense the muscles of the arms, legs and torso for ~15 sec</text>
+    <text x="300" y="194" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#43404e">2 · Release to normal (not relaxed) for ~20 sec</text>
+    <text x="300" y="216" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#43404e">3 · Repeat 5&#215; — this RAISES blood pressure</text>
+    <text x="300" y="236" text-anchor="middle" font-family="DM Sans" font-size="10.5" font-weight="700" fill="#5f7d59">&#8594; prevents the drop that causes fainting</text>
+    <!-- combine -->
+    <rect x="60" y="262" width="480" height="50" rx="12" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.4"/>
+    <text x="300" y="284" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#4f7193">Combined with exposure to blood/needles</text>
+    <text x="300" y="302" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">stay present, tense up, don\u2019t faint, learn it\u2019s manageable</text>
+    <rect x="60" y="328" width="480" height="62" rx="13" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.4"/>
+    <text x="300" y="352" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8884e">KEY CONTRAST</text>
+    <text x="300" y="373" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">Other phobias &#8594; RELAX · BII phobia &#8594; TENSE. The opposite, by design.</text>
+  </svg>`,
+  points:[
+    'BII phobia is treated differently because the danger is <b>fainting from a drop in blood pressure</b>, not over-arousal.',
+    '<b>Applied tension</b> (developed by Öst) has the person <b>tense the large muscle groups</b> for ~15 seconds, then release to normal — repeated several times.',
+    'The tensing <b>raises blood pressure</b>, preventing the vasovagal drop that causes the faint.',
+    'It is combined with <b>exposure</b> to blood/needles so the person learns they can stay present without passing out.',
+    'The key contrast: most phobia treatment uses <b>relaxation</b>, but BII phobia uses the <b>opposite</b> — deliberate tension.'
+  ],
+  hook:'BII is the upside-down phobia, so its cure is upside-down too: <b>everyone else relaxes — you TENSE</b> to keep the pressure up.'
+});
+LESSONS.push({
+  id:'cbt-panic', cat:'Treatment',
+  title:'CBT for Panic Disorder',
+  blurb:'Targeting the catastrophic misinterpretation directly — and proving the body sensations are safe.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Breaking the panic cycle (CBT)</text>
+    <text x="300" y="52" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">Directly attacks the catastrophic misinterpretation</text>
+    <g font-family="DM Sans">
+      <rect x="40" y="72" width="520" height="58" rx="12" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.4"/>
+      <text x="62" y="96" font-size="14" font-weight="700" fill="#4f7193">1</text>
+      <text x="86" y="94" font-size="12" font-weight="700" fill="#43404e">Psychoeducation</text>
+      <text x="86" y="114" font-size="10.5" fill="#65616e">learn the panic cycle; sensations are harmless fight-or-flight, not a heart attack</text>
+
+      <rect x="40" y="138" width="520" height="58" rx="12" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.4"/>
+      <text x="62" y="162" font-size="14" font-weight="700" fill="#4f7193">2</text>
+      <text x="86" y="160" font-size="12" font-weight="700" fill="#43404e">Cognitive restructuring</text>
+      <text x="86" y="180" font-size="10.5" fill="#65616e">identify &amp; challenge catastrophic thoughts; generate realistic alternatives</text>
+
+      <rect x="40" y="204" width="520" height="62" rx="12" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.6"/>
+      <text x="62" y="228" font-size="14" font-weight="700" fill="#a8884e">3</text>
+      <text x="86" y="226" font-size="12" font-weight="700" fill="#43404e">Interoceptive exposure</text>
+      <text x="86" y="246" font-size="10.5" fill="#65616e">deliberately bring on the sensations (hyperventilate, spin, run on the spot)</text>
+      <text x="86" y="261" font-size="10.5" font-weight="700" fill="#a8884e">&#8594; learn the feelings are safe &amp; pass on their own</text>
+
+      <rect x="40" y="274" width="520" height="58" rx="12" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+      <text x="62" y="298" font-size="14" font-weight="700" fill="#5f7d59">4</text>
+      <text x="86" y="296" font-size="12" font-weight="700" fill="#43404e">Drop safety behaviours</text>
+      <text x="86" y="316" font-size="10.5" fill="#65616e">stop carrying meds / gripping rails so the threat belief can finally update</text>
+    </g>
+    <rect x="40" y="346" width="520" height="62" rx="13" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.3"/>
+    <text x="300" y="370" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8443a">Highly effective — among the best-supported CBT applications</text>
+    <text x="300" y="392" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">teaches the brain that the body\u2019s alarm is a false alarm</text>
+  </svg>`,
+  points:[
+    'CBT for panic targets the <b>catastrophic misinterpretation</b> at the heart of Clark\u2019s model.',
+    'It starts with <b>psychoeducation</b>: the sensations are harmless fight-or-flight, not signs of a heart attack or madness.',
+    '<b>Cognitive restructuring</b> identifies and challenges the catastrophic thoughts, replacing them with realistic alternatives.',
+    '<b>Interoceptive exposure</b> deliberately induces the feared sensations (hyperventilating, spinning) so the person learns they are <b>safe and self-limiting</b>.',
+    '<b>Dropping safety behaviours</b> lets the threat belief finally update — making CBT for panic one of the best-supported treatments.'
+  ],
+  hook:'CBT for panic teaches one lesson over and over: <b>this is a false alarm</b>. Provoke it on purpose, survive it, and the fear dissolves.'
+});
+LESSONS.push({
+  id:'cbt-social', cat:'Treatment',
+  title:'CBT for Social Anxiety: Dropping Safety Behaviours',
+  blurb:'Turning attention outward, abandoning safety behaviours, and running behavioural experiments.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">CBT for Social Anxiety (Clark &amp; Wells based)</text>
+    <g font-family="DM Sans">
+      <rect x="40" y="54" width="520" height="56" rx="12" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.4"/>
+      <text x="60" y="78" font-size="13" font-weight="700" fill="#4f7193">Shift attention OUTWARD</text>
+      <text x="60" y="98" font-size="10.5" fill="#65616e">refocus on the conversation &amp; people, not on monitoring yourself</text>
+
+      <rect x="40" y="118" width="520" height="56" rx="12" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.6"/>
+      <text x="60" y="142" font-size="13" font-weight="700" fill="#a8884e">DROP safety behaviours</text>
+      <text x="60" y="162" font-size="10.5" fill="#65616e">make eye contact, stop rehearsing, let yourself be seen &#8594; the fear can be disconfirmed</text>
+
+      <rect x="40" y="182" width="520" height="56" rx="12" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+      <text x="60" y="206" font-size="13" font-weight="700" fill="#5f7d59">Behavioural experiments</text>
+      <text x="60" y="226" font-size="10.5" fill="#65616e">test predictions: "if I pause, people will laugh" &#8594; try it &amp; see what really happens</text>
+
+      <rect x="40" y="246" width="520" height="56" rx="12" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.4"/>
+      <text x="60" y="270" font-size="13" font-weight="700" fill="#4f7193">Video feedback</text>
+      <text x="60" y="290" font-size="10.5" fill="#65616e">watch a recording &#8594; "I look far less anxious than I FELT" (corrects the distorted self-image)</text>
+    </g>
+    <rect x="40" y="314" width="520" height="48" rx="11" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.3"/>
+    <text x="300" y="336" text-anchor="middle" font-family="DM Sans" font-size="11" font-weight="700" fill="#a8443a">+ Cognitive restructuring of "everyone is judging me"</text>
+    <text x="300" y="354" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#65616e">and reducing post-event rumination</text>
+    <text x="300" y="392" text-anchor="middle" font-family="DM Sans" font-size="11" font-style="italic" fill="#5f7d59">The aim: learn that the feared social catastrophe doesn\u2019t actually occur</text>
+  </svg>`,
+  points:[
+    'CBT for SAD (from the Clark & Wells model) begins by shifting attention <b>outward</b> — onto the conversation, not on self-monitoring.',
+    'It requires <b>dropping safety behaviours</b> (making eye contact, not rehearsing) so the feared outcome can finally be <b>disconfirmed</b>.',
+    '<b>Behavioural experiments</b> test catastrophic predictions directly — e.g. deliberately pausing in speech to see if people actually react.',
+    '<b>Video feedback</b> corrects the distorted self-image: patients see they <b>look far less anxious than they felt</b>.',
+    'Combined with <b>cognitive restructuring</b> and reducing <b>post-event rumination</b>, the person learns the social catastrophe doesn\u2019t happen.'
+  ],
+  hook:'Treat SAD by <b>turning the spotlight outward and dropping the crutches</b>: only then can reality prove the catastrophe was never coming.'
+});
+LESSONS.push({
+  id:'medication', cat:'Treatment',
+  title:'Pharmacological Treatments',
+  blurb:'The main drug options for anxiety — what they do, and why they are usually second to therapy.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Medication options for anxiety</text>
+    <g font-family="DM Sans">
+      <rect x="36" y="50" width="528" height="78" rx="13" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.6"/>
+      <text x="56" y="74" font-size="13" font-weight="700" fill="#5f7d59">SSRIs / SNRIs &#8212; first-line</text>
+      <text x="56" y="95" font-size="10.5" fill="#43404e">e.g. sertraline, escitalopram, venlafaxine &#183; boost serotonin/noradrenaline</text>
+      <text x="56" y="113" font-size="10.5" fill="#65616e">slow onset (2-6 wks), not addictive, good for long-term use</text>
+
+      <rect x="36" y="138" width="528" height="78" rx="13" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.6"/>
+      <text x="56" y="162" font-size="13" font-weight="700" fill="#a8443a">Benzodiazepines &#8212; short-term only</text>
+      <text x="56" y="183" font-size="10.5" fill="#43404e">e.g. diazepam, lorazepam &#183; enhance GABA &#8594; rapid calming</text>
+      <text x="56" y="201" font-size="10.5" fill="#65616e">fast but risk TOLERANCE, DEPENDENCE &amp; sedation &#8594; not for long-term use</text>
+
+      <rect x="36" y="226" width="528" height="64" rx="13" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.4"/>
+      <text x="56" y="250" font-size="13" font-weight="700" fill="#4f7193">Others</text>
+      <text x="56" y="271" font-size="10.5" fill="#43404e">beta-blockers (control physical symptoms, e.g. performance anxiety) &#183; buspirone</text>
+      <text x="56" y="286" font-size="10.5" fill="#65616e">beta-blockers blunt the racing heart &amp; tremor but not the worry itself</text>
+    </g>
+    <rect x="36" y="300" width="528" height="58" rx="12" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.4"/>
+    <text x="300" y="324" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8884e">Relapse is common when medication stops</text>
+    <text x="300" y="344" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">drugs manage symptoms; they don\u2019t teach the new learning that exposure/CBT does</text>
+    <text x="300" y="384" text-anchor="middle" font-family="DM Sans" font-size="11" font-style="italic" fill="#5f7d59">CBT/exposure is usually first-choice; medication can help, often in combination</text>
+  </svg>`,
+  points:[
+    '<b>SSRIs and SNRIs</b> (e.g. sertraline, venlafaxine) are the <b>first-line medication</b> — not addictive and suited to long-term use, but slow to act (2–6 weeks).',
+    '<b>Benzodiazepines</b> enhance GABA for rapid calming, but carry risk of <b>tolerance, dependence and sedation</b> — so only short-term.',
+    '<b>Beta-blockers</b> blunt physical symptoms (racing heart, tremor) and are useful for <b>performance anxiety</b>, but don\u2019t touch the worry itself.',
+    '<b>Relapse is common</b> once medication stops, because drugs manage symptoms rather than teaching new learning.',
+    '<b>CBT/exposure is usually first-choice</b>; medication can help, often <b>in combination</b> with psychological therapy.'
+  ],
+  hook:'Pills can <b>turn down the volume</b>, but exposure/CBT <b>retrains the brain</b>. Stop the pills and the fear often returns; relearning sticks.'
+});
+
+/* ===== SECTION 10 — EPIDEMIOLOGY ===== */
+LESSONS.push({
+  id:'epidemiology', cat:'Epidemiology',
+  title:'The Bigger Picture: Burden & Culture',
+  blurb:'Anxiety disorders as a public-health problem — their cost, their cultural shaping, and who gets help.',
+  svg:`<svg viewBox="0 0 600 430" xmlns="http://www.w3.org/2000/svg">
+    <text x="300" y="30" text-anchor="middle" font-family="DM Sans" font-size="19" font-weight="700" fill="#43404e">Anxiety as a public-health issue</text>
+    <g font-family="DM Sans">
+      <rect x="36" y="50" width="258" height="92" rx="13" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.4"/>
+      <text x="165" y="74" text-anchor="middle" font-size="12.5" font-weight="700" fill="#a8884e">Huge burden</text>
+      <text x="165" y="98" text-anchor="middle" font-size="10.5" fill="#43404e">among leading causes of</text>
+      <text x="165" y="114" text-anchor="middle" font-size="10.5" fill="#43404e">disability worldwide;</text>
+      <text x="165" y="130" text-anchor="middle" font-size="10.5" fill="#43404e">large economic cost</text>
+
+      <rect x="306" y="50" width="258" height="92" rx="13" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.4"/>
+      <text x="435" y="74" text-anchor="middle" font-size="12.5" font-weight="700" fill="#4f7193">Under-treated</text>
+      <text x="435" y="98" text-anchor="middle" font-size="10.5" fill="#43404e">many never seek help;</text>
+      <text x="435" y="114" text-anchor="middle" font-size="10.5" fill="#43404e">long delays between onset</text>
+      <text x="435" y="130" text-anchor="middle" font-size="10.5" fill="#43404e">and treatment</text>
+
+      <rect x="36" y="152" width="258" height="92" rx="13" fill="#e8efe4" stroke="#7d9b76" stroke-width="1.4"/>
+      <text x="165" y="176" text-anchor="middle" font-size="12.5" font-weight="700" fill="#5f7d59">Cultural shaping</text>
+      <text x="165" y="200" text-anchor="middle" font-size="10.5" fill="#43404e">expression varies by culture</text>
+      <text x="165" y="216" text-anchor="middle" font-size="10.5" fill="#43404e">e.g. taijin kyofusho (Japan):</text>
+      <text x="165" y="232" text-anchor="middle" font-size="10.5" fill="#43404e">fear of offending OTHERS</text>
+
+      <rect x="306" y="152" width="258" height="92" rx="13" fill="#e6edf3" stroke="#6f8fae" stroke-width="1.4"/>
+      <text x="435" y="176" text-anchor="middle" font-size="12.5" font-weight="700" fill="#4f7193">Somatic emphasis</text>
+      <text x="435" y="200" text-anchor="middle" font-size="10.5" fill="#43404e">some cultures express anxiety</text>
+      <text x="435" y="216" text-anchor="middle" font-size="10.5" fill="#43404e">mainly through BODILY</text>
+      <text x="435" y="232" text-anchor="middle" font-size="10.5" fill="#43404e">symptoms, not worry</text>
+    </g>
+    <rect x="36" y="256" width="528" height="58" rx="12" fill="#fbeae7" stroke="#cf6b5e" stroke-width="1.3"/>
+    <text x="300" y="280" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8443a">Comorbidity raises the burden further</text>
+    <text x="300" y="300" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">co-occurring depression &amp; substance use worsen prognosis &amp; cost</text>
+    <rect x="36" y="324" width="528" height="62" rx="13" fill="#f4eee1" stroke="#c9a96e" stroke-width="1.4"/>
+    <text x="300" y="348" text-anchor="middle" font-family="DM Sans" font-size="11.5" font-weight="700" fill="#a8884e">The core categories appear across cultures...</text>
+    <text x="300" y="370" text-anchor="middle" font-family="DM Sans" font-size="11" fill="#65616e">...but the CONTENT &amp; expression of fear are culturally shaped</text>
+  </svg>`,
+  points:[
+    'Anxiety disorders carry a <b>huge public-health burden</b> — among the leading causes of disability worldwide, with large economic costs.',
+    'They are widely <b>under-treated</b>: many people never seek help, and there are long delays between onset and treatment.',
+    'Their <b>expression is culturally shaped</b> — e.g. Japanese <b>taijin kyofusho</b>, where the fear is of <b>offending or embarrassing others</b> rather than oneself.',
+    'Some cultures express anxiety mainly through <b>bodily (somatic) symptoms</b> rather than reported worry.',
+    'Comorbid depression and substance use <b>raise the burden further</b>; the core categories appear across cultures, but the content of fear varies.'
+  ],
+  hook:'The <b>categories travel, the content is local</b>: every culture has anxiety, but what people fear — and how they show it — is culturally written.'
+});
+/* __LESSONS__ */
+
+/* ============================================================
+   FLASHCARD DATA
+   ============================================================ */
+FLASHCARDS.push(
+  {topic:'Overview', q:'What is the key difference between fear and anxiety?', a:'Fear is a response to a present, identifiable threat (urge to escape); anxiety is apprehension about a future, uncertain threat (worry, tension, avoidance).'},
+  {topic:'Overview', q:'What is a panic attack in physiological terms?', a:'A full fight-or-flight response firing as a false alarm — intensely uncomfortable but physically harmless.'},
+  {topic:'Overview', q:'Which system drives the fight-or-flight response, and via which hormones?', a:'The sympathetic nervous system, via adrenaline and noradrenaline.'},
+  {topic:'Overview', q:'Name the four anxiety disorders at the centre of this theme and what each fears.', a:'Specific phobia (the object/situation), social anxiety disorder (negative evaluation), panic disorder (the attack itself / "fear of fear"), agoraphobia (being trapped without escape or help).'},
+  {topic:'Overview', q:'When does normal anxiety become a disorder?', a:'When it is out of proportion, persistent (usually 6+ months), uncontrollable, and causes significant impairment/distress — usually with avoidance.'},
+  {topic:'Diagnosis', q:'How long must symptoms persist for a DSM-5 specific phobia, SAD, or agoraphobia diagnosis?', a:'Typically 6 months or more.'},
+  {topic:'Diagnosis', q:'What is the core fear in social anxiety disorder?', a:'Fear of being negatively evaluated — judged, embarrassed, humiliated or rejected in social/performance situations.'},
+  {topic:'Diagnosis', q:'How many of the 13 symptoms are needed for a panic attack?', a:'At least 4, with an abrupt surge peaking within minutes.'},
+  {topic:'Diagnosis', q:'What distinguishes panic disorder from simply having panic attacks?', a:'Recurrent UNEXPECTED attacks PLUS at least one month of persistent worry about more attacks and/or maladaptive behaviour change.'},
+  {topic:'Diagnosis', q:'How many agoraphobic situations must be feared for diagnosis, and from which five?', a:'At least 2 of: public transport, open spaces, enclosed places, queues/crowds, being outside the home alone.'},
+  {topic:'Diagnosis', q:'Is a panic attack a diagnosis?', a:'No — it is a specifier that can occur across many disorders (anxiety, depression, PTSD) and even medical conditions.'},
+  {topic:'Phobias', q:'What are the five DSM-5 specific phobia subtypes?', a:'Animal, Natural environment, Blood-Injection-Injury, Situational, and Other.'},
+  {topic:'Phobias', q:'Which phobia subtype is the most common?', a:'Animal type (e.g. spiders, snakes), usually beginning in childhood.'},
+  {topic:'Phobias', q:'What is unique about the physiology of Blood-Injection-Injury phobia?', a:'A diphasic response: a brief rise in BP/heart rate, then a sudden DROP (vasovagal) causing fainting.'},
+  {topic:'Phobias', q:'Why is disgust relevant to some phobias?', a:'High disgust sensitivity drives small-animal and BII phobias — the stimulus is revolting (disease-related), not necessarily dangerous.'},
+  {topic:'Social Anxiety', q:'What three processes maintain social anxiety in the Clark & Wells model?', a:'Self-focused attention (distorted self-image), safety behaviours that prevent disconfirmation, and post-event rumination.'},
+  {topic:'Social Anxiety', q:'How does shyness differ from social anxiety disorder?', a:'SAD involves marked impairment and active avoidance, not just discomfort; it typically onsets in adolescence.'},
+  {topic:'Panic & Agoraphobia', q:'What is the common thread linking all agoraphobic situations?', a:'Each is a place where escape would be difficult or help unavailable if panic-like symptoms occurred.'},
+  {topic:'Panic & Agoraphobia', q:'Name three "head"/cognitive symptoms of a panic attack.', a:'Dizziness/faintness, derealisation/depersonalisation, fear of losing control or "going crazy", and fear of dying.'},
+  {topic:'Aetiology', q:'What did Watson & Rayner demonstrate with Little Albert?', a:'A phobia can be classically conditioned: pairing a white rat (CS) with a loud noise (UCS) produced fear (CR), which generalised to other furry objects.'},
+  {topic:'Aetiology', q:'What are the two factors in Mowrer\u2019s two-factor model?', a:'Factor 1: classical conditioning ACQUIRES the fear. Factor 2: operant conditioning (avoidance via negative reinforcement) MAINTAINS it.'},
+  {topic:'Aetiology', q:'What does preparedness theory (Seligman) explain?', a:'We are biologically prepared to easily acquire fears of evolutionarily threatening stimuli (snakes, heights), and these resist extinction.'},
+  {topic:'Aetiology', q:'What is behavioural inhibition and why does it matter?', a:'A shy, fearful, withdrawn temperament to novelty seen in infancy (Kagan); it is a risk factor for later social anxiety and other anxiety disorders.'},
+  {topic:'Aetiology', q:'Summarise the diathesis-stress view of anxiety.', a:'Inherited vulnerability/temperament (diathesis) combines with environmental stress/learning (stress) to produce the disorder — "nature loads the gun, environment pulls the trigger".'},
+  {topic:'Cognitive & Brain', q:'Describe Clark\u2019s vicious circle of panic.', a:'Trigger \u2192 body sensations \u2192 catastrophic misinterpretation ("I\u2019m dying") \u2192 apprehension \u2192 more sensations \u2192 escalation into a panic attack.'},
+  {topic:'Cognitive & Brain', q:'What is anxiety sensitivity?', a:'The belief that anxiety sensations are dangerous/harmful ("fear of fear"); it prospectively predicts who develops panic disorder.'},
+  {topic:'Cognitive & Brain', q:'What attentional biases characterise anxiety?', a:'Faster detection of threat, difficulty disengaging from threat, and interpreting ambiguous cues as threatening (measured by dot-probe/emotional Stroop).'},
+  {topic:'Cognitive & Brain', q:'What did Wong et al. (2023) show about safety behaviours?', a:'Safety behaviours keep maladaptive threat beliefs intact: people misattribute their safety to the behaviour rather than reality, so the fear is never disconfirmed.'},
+  {topic:'Cognitive & Brain', q:'What are the roles of the amygdala and prefrontal cortex in anxiety?', a:'The amygdala is the threat alarm (hyperactive in anxiety); the prefrontal cortex is the regulatory brake (underactive). Plus the locus coeruleus and HPA axis drive arousal.'},
+  {topic:'Cognitive & Brain', q:'Which neurotransmitters are implicated in anxiety?', a:'Low GABA function and altered serotonin function — the targets of benzodiazepines and SSRIs respectively.'},
+  {topic:'Treatment', q:'Why does exposure therapy work?', a:'Staying in the feared situation allows anxiety to fall (habituation) and produces new learning that the situation is safe (extinction); escaping early prevents this.'},
+  {topic:'Treatment', q:'What is systematic desensitisation?', a:'Graded exposure climbing a fear hierarchy from least to most frightening, traditionally paired with relaxation.'},
+  {topic:'Treatment', q:'Why is applied tension used for BII phobia instead of relaxation?', a:'BII phobia causes a blood-pressure drop and fainting; tensing the muscles raises blood pressure to prevent the faint — the opposite of relaxation.'},
+  {topic:'Treatment', q:'What is interoceptive exposure in CBT for panic?', a:'Deliberately inducing feared body sensations (hyperventilating, spinning) to learn they are safe and self-limiting.'},
+  {topic:'Treatment', q:'Compare SSRIs and benzodiazepines for anxiety.', a:'SSRIs/SNRIs are first-line, slow-acting, non-addictive, good long-term; benzodiazepines act fast (enhance GABA) but risk tolerance/dependence — short-term only.'},
+  {topic:'Course & Epidemiology', q:'What is the typical age-of-onset order across anxiety disorders?', a:'Specific phobia (childhood) \u2192 social anxiety (adolescence) \u2192 panic disorder/agoraphobia (late teens\u201320s).'},
+  {topic:'Course & Epidemiology', q:'What is the sex ratio for most anxiety disorders?', a:'About 2:1 women to men.'},
+  {topic:'Course & Epidemiology', q:'Which anxiety disorders are most common (lifetime prevalence)?', a:'Specific phobia (~12%) and social anxiety disorder (~12%) are most common; panic disorder (~5%) and agoraphobia (~1\u20132%) are less common.'},
+  {topic:'Course & Epidemiology', q:'What is taijin kyofusho and what does it illustrate?', a:'A Japanese variant of social anxiety where the fear is of offending/embarrassing OTHERS — showing that anxiety\u2019s content and expression are culturally shaped.'},
+  {topic:'Course & Epidemiology', q:'Why does comorbidity matter in anxiety disorders?', a:'It is the rule (especially with depression and substance use), predicting greater severity, more impairment, poorer prognosis, and complicating treatment.'}
+);
+/* __FLASHCARDS__ */
+
+/* ============================================================
+   MCQ DATA
+   ============================================================ */
+MCQS.push(
+  {q:'Which statement best captures the difference between fear and anxiety?',
+   opts:['Fear is always pathological; anxiety is always normal','Fear responds to a present, identifiable threat; anxiety anticipates a future, uncertain one','Anxiety produces fight-or-flight; fear does not','They are identical states with different names'],
+   a:1, e:'Fear targets a present, concrete danger (with an escape urge), whereas anxiety is future-oriented apprehension about an uncertain threat. Both can be adaptive.'},
+  {q:'A panic attack is best described as:',
+   opts:['A sign of an underlying heart condition','A full fight-or-flight response triggered as a false alarm','A gradual build-up of worry over hours','A uniquely female experience'],
+   a:1, e:'A panic attack is the fight-or-flight response firing without real danger — uncomfortable but physically harmless. This fact is central to CBT for panic.'},
+  {q:'How many symptoms (of 13) are required for a DSM-5 panic attack?',
+   opts:['Any 2','At least 4','At least 8','All 13'],
+   a:1, e:'A panic attack requires an abrupt surge of fear/discomfort with at least 4 of the 13 listed symptoms, peaking within minutes. Fewer is a "limited-symptom attack".'},
+  {q:'What additional criterion turns recurrent unexpected panic attacks into panic disorder?',
+   opts:['The attacks must occur daily','At least one month of worry about more attacks and/or maladaptive behaviour change','A family history of panic','The presence of agoraphobia'],
+   a:1, e:'Criterion B requires ≥1 month of persistent concern about further attacks and/or a maladaptive change in behaviour — the "fear of fear" that defines the disorder.'},
+  {q:'Which specific phobia subtype involves a unique diphasic physiological response that can cause fainting?',
+   opts:['Animal type','Situational type','Blood-Injection-Injury type','Natural environment type'],
+   a:2, e:'BII phobia produces an initial rise then a sudden drop in blood pressure (vasovagal response), leading to fainting — unique among phobias.'},
+  {q:'Why is applied tension, not relaxation, used to treat BII phobia?',
+   opts:['Relaxation is too time-consuming','Tensing muscles raises blood pressure and prevents fainting','BII patients cannot learn to relax','It is simply tradition'],
+   a:1, e:'Because BII phobia causes a blood-pressure drop and fainting, patients tense their muscles to raise blood pressure — the opposite of the relaxation used for other phobias.'},
+  {q:'The core fear in social anxiety disorder is:',
+   opts:['Being physically harmed','Being negatively evaluated by others','Being trapped without escape','Contamination by germs'],
+   a:1, e:'SAD centres on the fear of negative evaluation — being judged, humiliated, or rejected in social/performance situations.'},
+  {q:'In Mowrer\u2019s two-factor model, what MAINTAINS a phobia?',
+   opts:['Classical conditioning','Operant conditioning via avoidance (negative reinforcement)','Genetic inheritance','Stimulus generalisation'],
+   a:1, e:'Classical conditioning acquires the fear (factor 1); avoidance provides relief that negatively reinforces and maintains it (factor 2), blocking new safety learning.'},
+  {q:'Preparedness theory (Seligman) is supported by the observation that:',
+   opts:['Phobias are randomly distributed across all objects','People more readily develop phobias of snakes and heights than of cars or sockets','Modern dangers cause the most phobias','Phobias cannot be learned'],
+   a:1, e:'Fears cluster around evolutionarily relevant threats (snakes, heights) rather than more dangerous modern objects (cars, sockets), reflecting biological preparedness.'},
+  {q:'According to Clark\u2019s cognitive model, panic attacks are driven by:',
+   opts:['A genuine cardiac emergency','Catastrophic misinterpretation of benign body sensations','Low blood sugar','Suppressed childhood memories'],
+   a:1, e:'Normal bodily sensations are catastrophically misinterpreted (e.g. "I\u2019m having a heart attack"), which raises apprehension and arousal in a self-amplifying vicious circle.'},
+  {q:'Wong et al. (2023) found that safety behaviours:',
+   opts:['Speed up recovery from anxiety','Keep maladaptive threat beliefs intact via misattribution of safety','Have no effect on threat beliefs','Are only a problem in specific phobia'],
+   a:1, e:'When nothing bad happens, people credit the safety behaviour rather than reality, so the threat belief is never disconfirmed — which is why dropping them aids exposure.'},
+  {q:'Which brain structure is the hyperactive "alarm" in anxiety, and which provides the "brake"?',
+   opts:['Hippocampus alarm; cerebellum brake','Amygdala alarm; prefrontal cortex brake','Prefrontal cortex alarm; amygdala brake','Thalamus alarm; hypothalamus brake'],
+   a:1, e:'The amygdala detects threat and triggers fear (overactive in anxiety); the prefrontal cortex normally regulates/dampens it (underactive in anxiety).'},
+  {q:'Anxiety sensitivity refers to:',
+   opts:['Sensitivity to other people\u2019s anxiety','The belief that anxiety-related sensations are dangerous','A low threshold for caffeine','Heightened empathy'],
+   a:1, e:'Anxiety sensitivity is the trait belief that arousal sensations are harmful ("fear of fear") and prospectively predicts the onset of panic disorder.'},
+  {q:'Which is the gold-standard psychological treatment for phobias and most anxiety disorders?',
+   opts:['Psychoanalysis','Exposure therapy','Long-term benzodiazepine use','Hypnosis'],
+   a:1, e:'Exposure (e.g. systematic desensitisation, flooding, in vivo/VR) is the best-supported approach; it produces habituation and new safety learning.'},
+  {q:'Across anxiety disorders, the typical sex ratio is approximately:',
+   opts:['Equal in men and women','2:1 women to men','2:1 men to women','5:1 women to men'],
+   a:1, e:'Women are roughly twice as likely as men to be diagnosed with most anxiety disorders.'},
+  {q:'Which pair of anxiety disorders has the HIGHEST lifetime prevalence?',
+   opts:['Panic disorder and agoraphobia','Specific phobia and social anxiety disorder','Agoraphobia and GAD','Panic disorder and specific phobia'],
+   a:1, e:'Specific phobia (~12%) and social anxiety disorder (~12%) are the two most common; panic disorder (~5%) and agoraphobia (~1\u20132%) are less common.'},
+  {q:'What is the typical developmental order of onset?',
+   opts:['Panic \u2192 social anxiety \u2192 specific phobia','Specific phobia (childhood) \u2192 social anxiety (adolescence) \u2192 panic/agoraphobia (late teens\u201320s)','Agoraphobia \u2192 phobia \u2192 social anxiety','All begin simultaneously in adulthood'],
+   a:1, e:'Specific phobias appear earliest in childhood, social anxiety in adolescence, and panic disorder/agoraphobia latest in the late teens to twenties.'},
+  {q:'Taijin kyofusho, a Japanese variant of social anxiety, illustrates that:',
+   opts:['Social anxiety does not exist outside the West','The content and expression of anxiety are culturally shaped','Anxiety is purely biological','Only collectivist cultures have anxiety'],
+   a:1, e:'In taijin kyofusho the fear is of offending/embarrassing OTHERS, showing the core category is cross-cultural but its content is culturally shaped.'}
+);
+/* __MCQS__ */
+
+init();
+</script>
+</body>
+</html>
